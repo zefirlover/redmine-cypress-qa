@@ -1,0 +1,10 @@
+{
+    "baseUrl": "https://www.redmine.org/",
+    "env": {
+        "MAILSLURP_API_KEY": "515ef447a846c5f1f02ed67940b6e597ab46ef7adc428485b08f8091b755a900"
+    },
+    "defaultCommandTimeout": 30000,
+    "requestTimeout": 30000,
+    "viewportHeight": 800,
+    "viewportWidth": 800
+}
