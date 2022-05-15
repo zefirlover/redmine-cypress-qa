@@ -1,6 +1,3 @@
-import login from '../pages/login.page';
-import register from '../pages/register.page';
-import helper from '../helpers/helper-functions';
 import page from '../pages/page';
 
 describe('verifying the issues functionality', function () {
@@ -8,5 +5,17 @@ describe('verifying the issues functionality', function () {
         page.visitPage('');
         page.clickOnByText('Issues');
         page.elementIsDisplayedByClasses('list issues');
-    })
+    });
+    it('Verify the status filter work on the issues page', function () {
+        page.visitPage('projects/redmine/issues');
+        page.elementIsDisplayedByName('op[status_id]');
+        page.clickOnSelectByName('op[status_id]', 'closed');
+        page.clickOnByText('Apply');
+        page.expectElementsByClassAmount('status', 'Closed', 25);
+    });
+    it('Add the tracker filter on the issues page', function () {
+        page.visitPage('projects/redmine/issues');
+        page.clickOnSelectById('add_filter_select', 'Tracker');
+        page.elementIsDisplayedByText('Tracker')
+    });
 })
