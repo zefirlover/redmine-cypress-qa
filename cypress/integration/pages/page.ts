@@ -1,6 +1,12 @@
 /// <reference types="cypress" />
 
 class Page {
+/*
+    get text() {
+        return cy.get(`[name="${elementName}"]`)
+    }
+*/
+
     visitPage(page: string) {
         cy.visit(page);
     }
@@ -23,6 +29,14 @@ class Page {
 
     insertDataByName(elementName: string, insertText: string) {
         cy.get(`[name="${elementName}"]`).type(insertText);
+    }
+
+    clearDataByName(elementName: string) {
+        cy.get(`[name="${elementName}"]`).clear();
+    }
+
+    expectElementByNameContainsData(elementName: string, containText: string) {
+        cy.get(`[name="${elementName}"]`).should('have.value', containText);
     }
 
     insertDataByNameInFirst(elementName: string, insertText: string) {
@@ -98,6 +112,14 @@ class Page {
         if (cy.contains(elementText)) {
             assert.isOk('everything', 'everything is OK');
         }
+    }
+
+    checkUrl(expectedUrl: string) {
+        cy.url().then(url => {
+            if(url == expectedUrl) {
+                assert.isOk('everything', 'everything is OK');
+            }
+        });
     }
 }
 

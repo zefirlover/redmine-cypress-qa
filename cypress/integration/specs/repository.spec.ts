@@ -1,11 +1,8 @@
-import login from '../pages/login.page';
-import register from '../pages/register.page';
-import helper from '../helpers/helper-functions';
 import page from '../pages/page';
 import revision from '../pages/revision.page';
 import repository from '../pages/repository.page';
 
-describe.only('verify the repository functionality', function () {
+describe('verify the repository functionality', function () {
     it('Verify the repository page', function () {
         page.visitPage('');
         page.clickOnByText('Repository');
@@ -31,7 +28,7 @@ describe.only('verify the repository functionality', function () {
         page.clickElementInArrayByClass('expander', 3);
         repository.checkElementsByClassNotContains('icon icon-file');
     });
-    it.only('Verify the revision repository filter work on a repository page', function () {
+    it('Verify the revision repository filter work on a repository page', function () {
         const number = '21563';
 
         page.visitPage('projects/redmine/repository');

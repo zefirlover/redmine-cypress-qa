@@ -8,9 +8,19 @@ class Revision {
             cy.wrap(elementText).as(`revisionId`);
             cy.log(elementText);
             page.verifyRadioCheckedByName(elementId, 0);
-            return cy.wrap(elementText).as(`revisionId${order}`);
+            cy.wrap(elementText).as(`revisionId${order}`);
         })
     }
+    /*
+    getElementTextFromArray(className: string, order: number, elementId: string) {
+        return cy.get(`[class="${className}"]`).eq(order).then(text => {
+            return new Cypress.Promise<string>((resolve, reject) => {
+                const elementText: string = text.text();
+                resolve(elementText)
+            })
+        })
+    }
+    */
 }
 
 export default new Revision();
