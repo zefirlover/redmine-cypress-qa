@@ -3,7 +3,7 @@ import issues from '../pages/issues.page';
 
 describe('verifying the issues functionality', function () {
     it('Verify the issues page', function () {
-        main.visitMainPage()
+        main.visitMainPage();
         issues.clickOnIssuesTab();
         issues.issuesTableIsDisplayed();
     });
@@ -13,7 +13,7 @@ describe('verifying the issues functionality', function () {
         issues.clickOnApplyButton();
         issues.allDisplayedIssuesAreClosed();
     });
-    it.only('Add the tracker filter on the issues page', function () {
+    it('Add the tracker filter on the issues page', function () {
         issues.visitIssuesPage();
         issues.addFilter('Tracker');
     });
