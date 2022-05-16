@@ -18,10 +18,10 @@ describe('verify the repository functionality', function () {
     it(`Verify the trunk folder's expander on a repository page`, function () {
         page.visitPage('projects/redmine/repository');
         page.elementIsDisplayedByClasses('list entries');
-        page.elementIsDisplayedByText('trunk');
+        page.displayedElementByText('trunk');
         page.notDisplayedElement('.github');
         page.clickElementInArrayByClass('expander', 3);
-        page.elementIsDisplayedByText('.github');
+        page.displayedElementByText('.github');
     });
     it('Verify the expander is places only near the folder in the trunk folder on a repository page', function () {
         page.visitPage('projects/redmine/repository');
@@ -34,7 +34,7 @@ describe('verify the repository functionality', function () {
         page.visitPage('projects/redmine/repository');
         page.elementIsDisplayedByName('rev');
         page.insertDataByNameInFirst('rev', number);
-        page.elementIsDisplayedByText(` @ ${number} `);
+        page.displayedElementByText(` @ ${number} `);
         repository.expectElementByClassContains('id', 0, number);
     })
 })

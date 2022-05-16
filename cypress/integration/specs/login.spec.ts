@@ -24,7 +24,7 @@ describe('verifying the login', function () {
         page.visitPage('');
         login.signUp(email, password, 'Logged in as');
         page.clickOnByText('299c0a41-190e-4533-891b-b333b9f37e51@mailslurp.com');
-        page.elementIsDisplayedByText('Mailslurp User');
+        page.displayedElementByText('Mailslurp User');
         page.clickOnByText('Sign out');
     });
     it('Verify the "My page" page', function () {
@@ -34,7 +34,7 @@ describe('verifying the login', function () {
         page.visitPage('');
         login.signUp(email, password, 'Logged in as');
         page.clickOnByText('My page');
-        page.elementIsDisplayedByText('Reported issues');
+        page.displayedElementByText('Reported issues');
         page.clickOnByText('Sign out');
     });
     it('Verify the user receive correct exception while entering wrong email or password on the sign up page', function () {

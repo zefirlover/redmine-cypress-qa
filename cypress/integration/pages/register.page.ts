@@ -21,7 +21,7 @@ class Register {
             .then(inbox => {
                 const inboxId = inbox.id;
                 helper.fillData(inboxId, password, confirmPassword);
-                page.elementIsDisplayedByText(resultMessage);
+                page.displayedElementByText(resultMessage);
             });
     }
 }

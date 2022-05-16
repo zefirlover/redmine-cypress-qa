@@ -6,7 +6,7 @@ class Login {
         page.insertDataByName('username', username);
         page.insertDataByName('password', password);
         page.clickOnByName('login');
-        page.elementIsDisplayedByText(checkText);
+        page.displayedElementByText(checkText);
     }
 }
 

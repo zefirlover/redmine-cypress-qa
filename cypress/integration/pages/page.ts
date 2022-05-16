@@ -1,12 +1,7 @@
 /// <reference types="cypress" />
 
-class Page {
-/*
-    get text() {
-        return cy.get(`[name="${elementName}"]`)
-    }
-*/
-
+export class Page {
+    
     visitPage(page: string) {
         cy.visit(page);
     }
@@ -47,10 +42,6 @@ class Page {
         cy.get(`[name="${elementName}"]`).should('have.value', '');
     }
 
-    expectElementsByClassAmount(className: string, elementText: string, amount: number) {
-        cy.get(`[class="${className}"]`).should('have.length', amount).contains(elementText);
-    }
-
     verifyRadioCheckedByName(elementId: string, order: number) {
         cy.get(`[id="${elementId}"]`).eq(order).should('have.attr', 'checked', 'checked');
     }
@@ -61,7 +52,7 @@ class Page {
 
     verifyRevision() {
         // chacge it later
-        this.elementIsDisplayedByText('Revision');
+        this.displayedElementByText('Revision');
     }
 
     tapTheKey(buttonName: string) {
@@ -76,7 +67,7 @@ class Page {
                 cy.get(selector).then($header => {
                     if ($header.is(':visible')) {
                         //you get here only if button EXISTS and is VISIBLE
-                        assert.isOk('everything', 'everything is OK');
+                        assert.isOk('everything', 'element is displayed');
                     }
                 });
             }
@@ -91,9 +82,9 @@ class Page {
                 cy.get(selector).then($header => {
                     if ($header.is(':visible')) {
                         //you get here only if button EXISTS and is VISIBLE
-                        assert.fail('everything', 'everything is not OK')
+                        assert.fail('everything', 'element is displayed')
                     } else {
-                        assert.isOk('everything', 'everything is OK');
+                        assert.isOk('everything', 'element is not displayed');
                     }
                 });
             }
@@ -108,9 +99,9 @@ class Page {
         this.displayedElement(`[class="${elementClasses}"]`)
     }
 
-    elementIsDisplayedByText(elementText: string) {
+    displayedElementByText(elementText: string) {
         if (cy.contains(elementText)) {
-            assert.isOk('everything', 'everything is OK');
+            assert.isOk('everything', 'element is displayed');
         }
     }
 

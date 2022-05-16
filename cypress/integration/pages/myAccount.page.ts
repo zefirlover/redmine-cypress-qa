@@ -6,7 +6,7 @@ class MyAccount {
         page.clearDataByName('user[firstname]');
         page.insertDataByName('user[firstname]', name);
         page.clickOnByText('Save');
-        page.elementIsDisplayedByText(confirmMessage);
+        page.displayedElementByText(confirmMessage);
     };
 
     changeUserPassword(oldPassword: string, newPassword: string, confirmMessage: string) {
@@ -15,7 +15,7 @@ class MyAccount {
         page.insertDataByName('new_password_confirmation', newPassword);
         page.clickOnByText('Apply');
         page.checkUrl('https://www.redmine.org/my/password');
-        page.elementIsDisplayedByText(confirmMessage);
+        page.displayedElementByText(confirmMessage);
     }
 }
 

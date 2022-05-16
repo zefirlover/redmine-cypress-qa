@@ -32,7 +32,7 @@ describe('verifying the registration', function () {
 
         page.visitPage('account/register');
         helper.fillData(email, password, password);
-        page.elementIsDisplayedByText('Email has already been taken');
+        page.displayedElementByText('Email has already been taken');
         page.expectedToBeEmpty('user[password]');
         page.expectedToBeEmpty('user[password_confirmation]');
     });

@@ -1,21 +1,20 @@
-import page from '../pages/page';
+import main from '../pages/main.page';
+import issues from '../pages/issues.page';
 
 describe('verifying the issues functionality', function () {
     it('Verify the issues page', function () {
-        page.visitPage('');
-        page.clickOnByText('Issues');
-        page.elementIsDisplayedByClasses('list issues');
+        main.visitMainPage()
+        issues.clickOnIssuesTab();
+        issues.issuesTableIsDisplayed();
     });
     it('Verify the status filter work on the issues page', function () {
-        page.visitPage('projects/redmine/issues');
-        page.elementIsDisplayedByName('op[status_id]');
-        page.clickOnSelectByName('op[status_id]', 'closed');
-        page.clickOnByText('Apply');
-        page.expectElementsByClassAmount('status', 'Closed', 25);
+        issues.visitIssuesPage();
+        issues.selectStatusOptionClosed();
+        issues.clickOnApplyButton();
+        issues.allDisplayedIssuesAreClosed();
     });
-    it('Add the tracker filter on the issues page', function () {
-        page.visitPage('projects/redmine/issues');
-        page.clickOnSelectById('add_filter_select', 'Tracker');
-        page.elementIsDisplayedByText('Tracker')
+    it.only('Add the tracker filter on the issues page', function () {
+        issues.visitIssuesPage();
+        issues.addFilter('Tracker');
     });
 })
