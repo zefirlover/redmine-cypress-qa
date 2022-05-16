@@ -8,6 +8,11 @@ class Repository {
             }
         })
     }
+    expectElementByClassContains(className: string, order: number, checkText: string) {
+        cy.get(`[class="${className}"]`).eq(order).children().then(element => {
+            expect(element).to.contain(checkText);
+        });
+    }
 }
 
 export default new Repository();

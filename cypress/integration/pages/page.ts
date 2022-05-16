@@ -25,6 +25,10 @@ class Page {
         cy.get(`[name="${elementName}"]`).type(insertText);
     }
 
+    insertDataByNameInFirst(elementName: string, insertText: string) {
+        cy.get(`[name="${elementName}"]`).first().type(insertText).type(`{enter}`);
+    }
+
     expectedToBeEmpty(elementName: string) {
         cy.get(`[name="${elementName}"]`).should('have.value', '');
     }
@@ -44,6 +48,10 @@ class Page {
     verifyRevision() {
         // chacge it later
         this.elementIsDisplayedByText('Revision');
+    }
+
+    tapTheKey(buttonName: string) {
+        cy.type(`{${buttonName}}`);
     }
 
     displayedElement(selector: string) {

@@ -3,9 +3,9 @@ import register from '../pages/register.page';
 import helper from '../helpers/helper-functions';
 import page from '../pages/page';
 import revision from '../pages/revision.page';
-import repositoryPage from '../pages/repository.page';
+import repository from '../pages/repository.page';
 
-describe('verify the repository functionality', function () {
+describe.only('verify the repository functionality', function () {
     it('Verify the repository page', function () {
         page.visitPage('');
         page.clickOnByText('Repository');
@@ -29,6 +29,15 @@ describe('verify the repository functionality', function () {
     it('Verify the expander is places only near the folder in the trunk folder on a repository page', function () {
         page.visitPage('projects/redmine/repository');
         page.clickElementInArrayByClass('expander', 3);
-        repositoryPage.checkElementsByClassNotContains('icon icon-file');
+        repository.checkElementsByClassNotContains('icon icon-file');
+    });
+    it.only('Verify the revision repository filter work on a repository page', function () {
+        const number = '21563';
+
+        page.visitPage('projects/redmine/repository');
+        page.elementIsDisplayedByName('rev');
+        page.insertDataByNameInFirst('rev', number);
+        page.elementIsDisplayedByText(` @ ${number} `);
+        repository.expectElementByClassContains('id', 0, number);
     })
 })
