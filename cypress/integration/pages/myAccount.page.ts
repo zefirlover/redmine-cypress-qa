@@ -82,17 +82,21 @@ class MyAccount extends Page {
         this.displayedElement(this.saveButtonSelector);
         this.saveButton.click();
         this.displayedElementByText(messageText);
-        this.expectElementContainsData(this.firstNameInputSelector, name)
+        this.expectElementContainsData(this.firstNameInputSelector, name);
     };
 
-    changeUserPassword(oldPassword: string, newPassword: string, messageText: string) {
+    changeUserPassword(oldPassword: string, newPassword: string, confirmPassword: string, messageText: string) {
         this.visitMyPasswordPage();
         this.passwordInput.type(oldPassword);
         this.newPasswordInput.type(newPassword);
-        this.newPasswordConfirmInput.type(newPassword);
+        this.newPasswordConfirmInput.type(confirmPassword);
         this.applyButton.click();
         this.checkUrl('https://www.redmine.org/my/password');
         this.displayedElementByText(messageText);
+    }
+
+    expectFirstNameIsMailslurp() {
+        this.expectElementContainsData(this.firstNameInputSelector, 'Mailslurp')
     }
 }
 

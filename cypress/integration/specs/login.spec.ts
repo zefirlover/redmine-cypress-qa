@@ -16,15 +16,13 @@ describe('verifying the login', function () {
         login.clickOnSignOutReference();
     });
     it('Verify the users page', function () {
-        main.visitMainPage();
-        login.signUp(email, password, 'Logged in as');
+        helper.verifyingUserIsLogined(email, password);
         main.clickOnUserPageReference();
         login.displayedElementByText('Mailslurp User');
         login.clickOnSignOutReference();
     });
     it('Verify the "My page" page', function () {
-        main.visitMainPage();
-        login.signUp(email, password, 'Logged in as');
+        helper.verifyingUserIsLogined(email, password);
         main.clickOnMyPageReference();
         login.displayedElementByText('Reported issues');
         login.clickOnSignOutReference();
