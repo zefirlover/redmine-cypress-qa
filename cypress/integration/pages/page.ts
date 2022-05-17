@@ -28,7 +28,7 @@ export class Page {
                 cy.get(selector).then($header => {
                     if ($header.is(':visible')) {
                         //you get here only if button EXISTS and is VISIBLE
-                        assert.fail('everything', 'element is displayed')
+                        assert.fail('everything', 'element is displayed');
                     } else {
                         assert.isOk('everything', 'element is not displayed');
                     }
