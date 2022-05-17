@@ -5,8 +5,9 @@ import helper from '../helpers/helper-functions';
 describe('verify the my account page functionality', function () {
     const email = '299c0a41-190e-4533-891b-b333b9f37e51@mailslurp.com';
     const password = 'HuskTheBest75_';
+    const wrongPassword = 'Husk';
     const newPassword = 'HuskTheBest75';
-    const confirmPassword = 'Hsuk';
+    const confirmPassword = 'Husk';
 
     const userUpdateSuccessMsg = 'Account was successfully updated';
     const passwordUpdateSuccessMsg = 'Password was successfully updated';
@@ -57,8 +58,15 @@ describe('verify the my account page functionality', function () {
     it('Verify the wrong old password denied the attempt to change the password', function () {
         helper.verifyingUserIsLogined(email, password);
         myAccount.visitMyPasswordPage();
+        myAccount.changeUserPassword(wrongPassword, newPassword, newPassword, wrongPasswordMsg);
+        myAccount.changeUserPassword(newPassword, password, password, wrongPasswordMsg);
+        login.clickOnSignOutReference();
+    });
+    it('Verify the wrong confirmation password denied the attempt to change the password', function () {
+        helper.verifyingUserIsLogined(email, password);
+        myAccount.visitMyPasswordPage();
         myAccount.changeUserPassword(password, newPassword, confirmPassword, wrongConfirmationMsg);
         myAccount.changeUserPassword(newPassword, password, password, wrongPasswordMsg);
         login.clickOnSignOutReference();
-    })
+    });
 })

@@ -14,7 +14,7 @@ describe('verifying the registration', function () {
         register.visitRegisterPage();
         register.registerNewUser(password, password, resultMessage);
     });
-    it('Verify the user receive correct exception while entering wrong confirmation passrword on the register page', function () {
+    it('Verify the user receive correct exception while entering wrong confirmation password on the register page', function () {
         let password = "HuskTheBest75_";
         let confirm_password = "HuskTheBest75";
         let resultMessage = "Password doesn't match confirmation"
