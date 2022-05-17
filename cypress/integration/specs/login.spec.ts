@@ -3,7 +3,6 @@ import login from '../pages/login.page';
 import helper from '../helpers/helper-functions';
 
 describe('verifying the login', function () {
-
     const email = '299c0a41-190e-4533-891b-b333b9f37e51@mailslurp.com';
     const password = 'HuskTheBest75_';
 

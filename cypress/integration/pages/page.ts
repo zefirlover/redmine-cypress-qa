@@ -116,6 +116,12 @@ export class Page {
             }
         });
     }
+
+    expectOneFromElementsContains(elementSelector: string, elementOrder: number, checkText: string) {
+        cy.get(elementSelector).eq(elementOrder).children().then(element => {
+            expect(element).to.contain(checkText);
+        });
+    }
 }
 
 export default new Page();

@@ -21,6 +21,17 @@ class Revision {
         })
     }
     */
+
+    // from repository.spec.ts
+    /*
+    it('Verify the view the revisions differences page', function () {
+        page.visitPage('projects/redmine/repository');
+        revision.getElementTextFromArray('id', 0, 'cb-1');
+        revision.getElementTextFromArray('id', 1, 'cbto-2');
+        page.clickOnByText('View differences');
+        page.verifyRevision();
+    });
+    */
 }
 
 export default new Revision();
