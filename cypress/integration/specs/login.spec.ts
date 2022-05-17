@@ -33,6 +33,6 @@ describe('verifying the login', function () {
     it('Verify the user receive correct exception while entering wrong email or password on the sign up page', function () {
         login.visitLoginPage();
         login.signUp(helper.makeLorem(), helper.makeLorem(), 'Invalid user or password');
-        login.checkPassfordInputIsEmpty();
+        login.checkPasswordInputIsEmpty();
     })
 })

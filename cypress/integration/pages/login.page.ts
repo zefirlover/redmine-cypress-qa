@@ -59,7 +59,7 @@ class Login extends Page {
         this.displayedElementByText(checkText);
     }
 
-    checkPassfordInputIsEmpty() {
+    checkPasswordInputIsEmpty() {
         this.displayedElement(this.passwordInputSelector);
         this.passwordInput.should('have.value', '');
     }

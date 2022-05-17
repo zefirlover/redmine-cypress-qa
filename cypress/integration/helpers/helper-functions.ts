@@ -20,16 +20,6 @@ class Helpers {
       
         return text;
     }
-
-    fillData(inboxId: string, password: string, confirm: string) {
-      page.insertDataByName('user[login]', inboxId);
-      page.insertDataByName('user[password]', password);
-      page.insertDataByName('user[password_confirmation]', confirm);
-      page.insertDataByName('user[firstname]', this.makeLorem());
-      page.insertDataByName('user[lastname]', this.makeLorem());
-      page.insertDataByName('user[mail]', `${inboxId}@mailslurp.com`);
-      page.clickOnByText('Submit');
-    }
 }
 
 export default new Helpers();

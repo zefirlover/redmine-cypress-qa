@@ -2,7 +2,7 @@ import login from '../pages/login.page';
 import myAccount from '../pages/myAccount.page';
 import main from '../pages/main.page';
 
-describe.only('verify the my account page functionality', function () {
+describe('verify the my account page functionality', function () {
     const email = '299c0a41-190e-4533-891b-b333b9f37e51@mailslurp.com';
     const password = 'HuskTheBest75_';
     const newPassword = 'HuskTheBest75';
