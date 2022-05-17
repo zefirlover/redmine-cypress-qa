@@ -34,6 +34,10 @@ export class Page {
         cy.get(`[name="${elementName}"]`).should('have.value', containText);
     }
 
+    expectElementContainsData(elementSelector: string, containText: string) {
+        cy.get(elementSelector).should('have.value', containText);
+    }
+
     insertDataByNameInFirst(elementName: string, insertText: string) {
         cy.get(`[name="${elementName}"]`).first().type(insertText).type(`{enter}`);
     }
@@ -108,7 +112,7 @@ export class Page {
     checkUrl(expectedUrl: string) {
         cy.url().then(url => {
             if(url == expectedUrl) {
-                assert.isOk('everything', 'everything is OK');
+                assert.isOk('everything', 'the URL is same as expected');
             }
         });
     }
