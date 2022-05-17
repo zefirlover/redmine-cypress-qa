@@ -2,6 +2,20 @@
 import page from '../pages/page';
 
 class Revision {
+
+    // from page.ts
+    /*
+    verifyRadioCheckedByName(elementId: string, order: number) {
+        cy.get(`[id="${elementId}"]`).eq(order).should('have.attr', 'checked', 'checked');
+    }
+    verifyRevision() {
+        // change it later
+        this.displayedElementByText('Revision');
+    }
+    */
+
+    // old code
+    /*
     getElementTextFromArray(className: string, order: number, elementId: string) {
         cy.get(`[class="${className}"]`).eq(order).then(text => {
             const elementText: string = text.text();
@@ -10,7 +24,9 @@ class Revision {
             page.verifyRadioCheckedByName(elementId, 0);
             cy.wrap(elementText).as(`revisionId${order}`);
         })
-    }
+    }*/
+
+    // new code
     /*
     getElementTextFromArray(className: string, order: number, elementId: string) {
         return cy.get(`[class="${className}"]`).eq(order).then(text => {
