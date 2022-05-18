@@ -1,18 +1,24 @@
 import { Page } from './page'
 
 class Forums extends Page {
-
-    forumsTabSelector = 'a[href="/projects/redmine/boards"]';
-    boardsListSelector = '[class="list boards"]'
-
     get forumsTab() {
-        return cy.get(this.forumsTabSelector);
+        return cy.get('a[href="/projects/redmine/boards"]');
     }
 
-    clickOnMyAccountReference() {
-        this.displayedElement(this.forumsTabSelector);
+    get boardsList() {
+        return cy.get('[class="list boards"]');
+    }
+
+    checkForumsTab() {
+        this.forumsTab.should('be.visible');
+    }
+
+    clickOnForumsTab() {
         this.forumsTab.click();
-        this.displayedElement(this.boardsListSelector);
+    }
+
+    checkBoardsList() {
+        this.boardsList.should('be.visible');
     }
 }
 

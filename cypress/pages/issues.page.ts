@@ -1,143 +1,159 @@
 import { Page } from '../pages/page'
 
 class Issues extends Page {
-    
-    issuesTabSelector = 'a[href*="issues"]';
-
-    issuesStatusSelector = 'td[class="status"]';
-    issuesTrackerSelector = 'td[class="tracker"]';
-    issuesUpdatedSelector = 'td[class="updated_on"]';
-
-    addFilterSelector = '#add_filter_select';
-    applyButtonSelector = 'a[onclick*="submit_query_form"]';
-
-    statusDropdownListSelector = '#operators_status_id';
-    trackerDropdownListSelector = '#values_tracker_id_1';
-    trackerOperatorDropdownListSelector = '#operators_tracker_id';
-    updatedInputSelector = '#values_updated_on_1';
-
-    statusCheckboxSelector = '#cb_status_id';
-
     get issuesTab() {
-        return cy.get(this.issuesTabSelector);
+        return cy.get('a[href*="issues"]');
     }
 
     get statusDropdownList() {
-        return cy.get(this.statusDropdownListSelector);
+        return cy.get('#operators_status_id');
     }
 
     get trackerDropdownList() {
-        return cy.get(this.trackerDropdownListSelector);
+        return cy.get('#values_tracker_id_1');
     }
 
     get trackerOperatorDropdownList() {
-        return cy.get(this.trackerOperatorDropdownListSelector);
+        return cy.get('#operators_tracker_id');
     }
 
     get updatedInput() {
-        return cy.get(this.updatedInputSelector);
+        return cy.get('#values_updated_on_1');
     }
 
     get applyButton() {
-        return cy.get(this.applyButtonSelector);
+        return cy.get('a[onclick*="submit_query_form"]');
     }
 
     get issuesStatus() {
-        return cy.get(this.issuesStatusSelector);
+        return cy.get('td[class="status"]');
     }
 
     get issuesTracker() {
-        return cy.get(this.issuesTrackerSelector);
+        return cy.get('td[class="tracker"]');
     }
 
     get addFilterDropdownList() {
-        return cy.get(this.addFilterSelector);
+        return cy.get('#add_filter_select');
     }
 
     get statusCheckbox() {
-        return cy.get(this.statusCheckboxSelector);
+        return cy.get('#cb_status_id');
     }
 
     get issuesUpdated() {
-        return cy.get(this.issuesUpdatedSelector);
+        return cy.get('td[class="updated_on"]');
+    }
+
+    get issuesTable() {
+        return cy.get('table[class*="issues"]');
     }
 
     visitIssuesPage() {
         cy.visit('projects/redmine/issues');
     }
 
+    checkIssuesTab() {
+        this.issuesTab.should('be.visible');
+    }
+
     clickOnIssuesTab() {
-        this.displayedElement(this.issuesTabSelector);
-        this.issuesTab.contains('Issues');
         this.issuesTab.click();
     }
 
+    checkApplyButton() {
+        this.applyButton.should('be.visible');
+    }
+
     clickOnApplyButton() {
-        this.displayedElement(this.applyButtonSelector);
-        this.applyButton.contains('Apply');
         this.applyButton.click();
     }
 
     issuesTableIsDisplayed() {
-        this.displayedElement('table[class*="issues"]');
+        this.issuesTable.should('be.visible');
+    }
+
+    checkStatusOption() {
+        this.statusDropdownList.should('be.visible');
     }
 
     selectStatusOptionClosed() {
-        this.displayedElement(this.statusDropdownListSelector);
         this.statusDropdownList.select('closed');
     }
 
+    checkTrackerDropdownList() {
+        this.trackerDropdownList.should('be.visible');
+    }
+
     selectTrackerOptionPatch() {
-        this.displayedElement(this.trackerDropdownListSelector);
         this.trackerDropdownList.select('Patch');
     }
 
     notAllDisplayedIssuesAreClosed() {
-        this.displayedElement(this.issuesStatusSelector);
-        cy.get(`${this.issuesStatusSelector}:contains("Closed")`).should('not.have.length', 25);
+        cy.get(`td[class="status"]:contains("Closed")`).should('not.have.length', 25);
+    }
+
+    checkDisplayedIssuesStatus() {
+        this.issuesStatus.should('be.visible');
     }
     
     allDisplayedIssuesAreClosed() {
-        this.displayedElement(this.issuesStatusSelector);
         this.issuesStatus.should('have.length', 25);
         this.issuesStatus.contains('Closed');
     }
 
+    checkIssuesUpdateIsDisplayed() {
+        this.issuesStatus.should('be.visible');
+    }
+
     allDisplayedUpdateDateAreSame(dateString: string) {
-        this.displayedElement(this.issuesUpdatedSelector);
         this.issuesUpdated.contains(dateString);
     }
 
+    checkDisplayedIssuesTracker() {
+        this.issuesTracker.should('be.visible');
+    }
+
     allDisplayedIssuesArePatch() {
-        this.displayedElement(this.issuesUpdatedSelector);
         this.issuesTracker.should('have.length', 25);
         this.issuesTracker.contains('Patch');
     }
 
     allDisplayedIssuesAreNotPatch() {
-        this.displayedElement(this.issuesTrackerSelector);
         this.issuesTracker.should('have.length', 25);
         this.issuesTracker.should('not.contain', 'Patch');
     }
 
+    checkAddFilter() {
+        this.addFilterDropdownList.should('be.visible');
+    }
+
     addFilter(filterText: string) {
-        this.displayedElement(this.addFilterSelector);
         this.addFilterDropdownList.select(filterText);
         this.displayedElementByText(filterText);
     }
 
+    checkStatusCheckbox() {
+        this.statusCheckbox.should('be.visible');
+    }
+
     clickOnStatusCheckbox() {
-        this.displayedElement(this.statusCheckboxSelector);
         this.statusCheckbox.click();
     }
 
+    checkTrackerOperatorDropdownlist() {
+        this.trackerOperatorDropdownList.should('be.visible');
+    }
+
     selectTrackerOperatorOptionIsNot() {
-        this.displayedElement(this.trackerOperatorDropdownListSelector);
         this.trackerOperatorDropdownList.select('is not');
     }
 
+    checkUpdatedInput() {
+        this.updatedInput.should('be.visible');
+    }
+    
     insertUpdatedData(dataString: string) {
-        this.displayedElement(this.updatedInputSelector);
         this.updatedInput.type(dataString);
     }
 }
