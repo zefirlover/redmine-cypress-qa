@@ -1,29 +1,31 @@
 import { Page } from '../pages/page'
 
 class Main extends Page {
-
-    userPageReferenceSelector = 'a[href*="/users/"]';
-    myPageReferenceSelector = 'a[href*="/my/page"]';
-
     get userPageReference() {
-        return cy.get(this.userPageReferenceSelector);
+        return cy.get('a[href*="/users/"]');
     }
 
     get myPageReference() {
-        return cy.get(this.myPageReferenceSelector);
+        return cy.get('a[href*="/my/page"]');
     }
 
     visitMainPage() {
         cy.visit('');
     }
 
+    checkUserPageReference() {
+        this.userPageReference.should('be.visible');
+    }
+
     clickOnUserPageReference() {
-        this.displayedElement(this.userPageReferenceSelector);
         this.userPageReference.click();
     }
 
+    checkMyPageReference() {
+        this.myPageReference.should('be.visible');
+    }
+
     clickOnMyPageReference() {
-        this.displayedElement(this.myPageReferenceSelector);
         this.myPageReference.click();
     }
 }

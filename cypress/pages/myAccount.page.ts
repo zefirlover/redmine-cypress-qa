@@ -1,57 +1,44 @@
 import { Page } from '../pages/page'
 
 class MyAccount extends Page {
-
-    myAccountReferenceSelector = 'a[href="/my/account"]';
-    firstNameInputSelector = '#user_firstname';
-    lastNameInputSelector = '#user_lastname';
-    emailInputSelector = '#user_mail';
-    saveButtonSelector = '[name="commit"]';
-
-    changePasswordReferenceSelector = 'a[href="/my/password"]';
-    passwordInputSelector = '#password';
-    newPasswordInputSelector = '#new_password';
-    newPasswordConfirmInputSelector = '#new_password_confirmation';
-    applyButtonSelector = '[name="commit"]';
-
     get myAccountReference() {
-        return cy.get(this.myAccountReferenceSelector);
+        return cy.get('a[href="/my/account"]');
     }
 
     get firstNameInput() {
-        return cy.get(this.firstNameInputSelector);
+        return cy.get('#user_firstname');
     }
 
     get lastNameInput() {
-        return cy.get(this.lastNameInputSelector);
+        return cy.get('#user_lastname');
     }
 
     get emailInput() {
-        return cy.get(this.emailInputSelector);
+        return cy.get('#user_mail');
     }
 
     get saveButton() {
-        return cy.get(this.saveButtonSelector);
+        return cy.get('[name="commit"]');
     }
 
     get applyButton() {
-        return cy.get(this.applyButtonSelector);
+        return cy.get('[name="commit"]');
     }
 
     get changePasswordReference() {
-        return cy.get(this.changePasswordReferenceSelector);
+        return cy.get('a[href="/my/password"]');
     }
 
     get passwordInput() {
-        return cy.get(this.passwordInputSelector);
+        return cy.get('#password');
     }
 
     get newPasswordInput() {
-        return cy.get(this.newPasswordInputSelector);
+        return cy.get('#new_password');
     }
 
     get newPasswordConfirmInput() {
-        return cy.get(this.newPasswordConfirmInputSelector);
+        return cy.get('#new_password_confirmation');
     }
 
     visitMyAccountPage() {
@@ -62,27 +49,40 @@ class MyAccount extends Page {
         cy.visit('my/password');
     }
 
+    checkMyAccountReference() {
+        this.myAccountReference.should('be.visible');
+    }
+
     clickOnMyAccountReference() {
-        this.displayedElement(this.myAccountReferenceSelector);
         this.myAccountReference.click();
-        this.displayedElement(this.firstNameInputSelector);
-        this.displayedElement(this.lastNameInputSelector);
-        this.displayedElement(this.emailInputSelector);
+    }
+
+    checkFirstNameInput() {
+        this.firstNameInput.should('be.visible');
+    }
+
+    checkLastNameInput() {
+        this.lastNameInput.should('be.visible');
+    }
+
+    checkEmailInput() {
+        this.emailInput.should('be.visible');
     }
 
     clickOnChangePasswordReference() {
-        this.displayedElement(this.changePasswordReferenceSelector);
+        this.changePasswordReference.should('be.visible');
         this.changePasswordReference.click();
-        this.displayedElement(this.passwordInputSelector);
-        this.displayedElement(this.newPasswordInputSelector);
+        this.passwordInput.should('be.visible');
+        this.newPasswordConfirmInput.should('be.visible');
     }
 
     updateFirstName(name: string, messageText: string) {
+        this.firstNameInput.should('be.visible');
         this.firstNameInput.clear().type(name);
-        this.displayedElement(this.saveButtonSelector);
+        this.saveButton.should('be.visible');
         this.saveButton.click();
         this.displayedElementByText(messageText);
-        this.expectElementContainsData(this.firstNameInputSelector, name);
+        this.firstNameInput.should('have.value', messageText);
     };
 
     changeUserPassword(oldPassword: string, newPassword: string, confirmPassword: string, messageText: string) {
@@ -96,7 +96,7 @@ class MyAccount extends Page {
     }
 
     expectFirstNameIsMailslurp() {
-        this.expectElementContainsData(this.firstNameInputSelector, 'Mailslurp')
+        this.firstNameInput.should('have.value', 'Mailslurp');
     }
 }
 
