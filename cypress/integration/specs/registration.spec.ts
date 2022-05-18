@@ -1,6 +1,6 @@
-import register from '../pages/register.page';
+import register from '../../pages/register.page';
 import helper from '../../helpers/helper-functions';
-import main from '../pages/main.page';
+import main from '../../pages/main.page';
 
 describe('verifying the registration', function () {
     it('Verify the registration page', function () {

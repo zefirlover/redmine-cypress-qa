@@ -1,5 +1,5 @@
-import main from '../pages/main.page';
-import issues from '../pages/issues.page';
+import main from '../../pages/main.page';
+import issues from '../../pages/issues.page';
 
 describe('verifying the issues functionality', function () {
     it('Verify the issues page', function () {

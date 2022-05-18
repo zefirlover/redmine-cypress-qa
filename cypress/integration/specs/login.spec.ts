@@ -1,5 +1,5 @@
-import main from '../pages/main.page';
-import login from '../pages/login.page';
+import main from '../../pages/main.page';
+import login from '../../pages/login.page';
 import helper from '../../helpers/helper-functions';
 
 describe('verifying the login', function () {

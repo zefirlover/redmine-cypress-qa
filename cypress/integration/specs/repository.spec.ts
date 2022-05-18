@@ -1,5 +1,5 @@
-import repository from '../pages/repository.page';
-import main from '../pages/main.page';
+import repository from '../../pages/repository.page';
+import main from '../../pages/main.page';
 
 describe('verify the repository functionality', function () {
     it('Verify the repository page', function () {

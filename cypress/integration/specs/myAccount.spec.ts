@@ -1,5 +1,5 @@
-import login from '../pages/login.page';
-import myAccount from '../pages/myAccount.page';
+import login from '../../pages/login.page';
+import myAccount from '../../pages/myAccount.page';
 import helper from '../../helpers/helper-functions';
 
 describe('verify the my account page functionality', function () {
