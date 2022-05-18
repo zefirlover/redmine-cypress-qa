@@ -1,6 +1,6 @@
 import login from '../pages/login.page';
 import myAccount from '../pages/myAccount.page';
-import helper from '../helpers/helper-functions';
+import helper from '../../helpers/helper-functions';
 
 describe('verify the my account page functionality', function () {
     const email = '299c0a41-190e-4533-891b-b333b9f37e51@mailslurp.com';
