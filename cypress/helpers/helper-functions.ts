@@ -1,5 +1,5 @@
-import main from '../pages/main.page';
-import login from '../pages/login.page';
+import mainPage from '../pages/main.page';
+import loginPage from '../pages/login.page';
 
 class Helpers {
     makeLorem() {
@@ -13,8 +13,8 @@ class Helpers {
     }
 
     verifyingUserIsLogined(userLogin: string, userPassword: string) {
-        main.visitMainPage();
-        login.signUp(userLogin, userPassword, 'Logged in as');
+        mainPage.visitMainPage();
+        loginPage.signUp(userLogin, userPassword, 'Logged in as');
     }
 }
 
