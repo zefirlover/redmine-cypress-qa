@@ -24,6 +24,10 @@ export class Login extends Main {
         return cy.get('a[href="/logout"]');
     }
 
+    get reportedIssuesReference() {
+        return cy.get('a[href*="/issues?author_id=me"]');
+    }
+
     visitLoginPage() {
         cy.visit('login');
     }
@@ -60,7 +64,7 @@ export class Login extends Main {
         this.signOutReference.click();
     }
 
-    signUp(username: string, password: string, checkText: string) {
+    signUp(username: string, password: string, checkTextId: string) {
         this.checkSignInReference();
         this.clickOnSignInReference();
 
@@ -71,11 +75,15 @@ export class Login extends Main {
 
         this.checkLoginButton()
         this.clickOnSignInButton();
-        this.displayedElementByText(checkText);
+        this.displayedElementById(checkTextId);
     }
 
     checkPasswordInputIsEmpty() {
         this.passwordInput.should('have.value', '');
+    }
+
+    checkReportedIssuesReference() {
+        this.reportedIssuesReference.should('be.visible');
     }
 }
 

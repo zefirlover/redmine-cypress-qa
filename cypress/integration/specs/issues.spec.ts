@@ -22,13 +22,13 @@ describe('verifying the issues functionality', function () {
     it('Add the tracker filter on the issues page', function () {
         issuesPage.visitIssuesPage();
         issuesPage.checkAddFilter();
-        issuesPage.addFilter('Tracker');
+        issuesPage.addFilter('tracker_id');
     });
     it('Verify the tracker filter work on the issues page', function () {
         issuesPage.visitIssuesPage();
 
         issuesPage.checkAddFilter();
-        issuesPage.addFilter('Tracker');
+        issuesPage.addFilter('tracker_id');
 
         issuesPage.checkTrackerDropdownList();
         issuesPage.selectTrackerOptionPatch();
@@ -49,7 +49,7 @@ describe('verifying the issues functionality', function () {
         issuesPage.selectStatusOptionClosed();
 
         issuesPage.checkAddFilter();
-        issuesPage.addFilter('Tracker');
+        issuesPage.addFilter('tracker_id');
 
         issuesPage.checkTrackerDropdownList();
         issuesPage.selectTrackerOptionPatch();
@@ -70,7 +70,7 @@ describe('verifying the issues functionality', function () {
         issuesPage.selectStatusOptionClosed();
 
         issuesPage.checkAddFilter();
-        issuesPage.addFilter('Tracker');
+        issuesPage.addFilter('tracker_id');
 
         issuesPage.checkTrackerDropdownList();
         issuesPage.selectTrackerOptionPatch();
@@ -108,7 +108,7 @@ describe('verifying the issues functionality', function () {
         issuesPage.visitIssuesPage();
 
         issuesPage.checkAddFilter();
-        issuesPage.addFilter('Updated');
+        issuesPage.addFilter('updated_on');
 
         issuesPage.checkUpdatedInput();
         issuesPage.insertUpdatedData(data);

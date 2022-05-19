@@ -56,7 +56,7 @@ class Repository extends Main {
 
     expanderFunctionalityTest() {
         this.trunkFolder.should('be.visible');
-        this.githubFolder.should('not.be.visible');
+        this.githubFolder.should('not.exist');
 
         this.clickOnTrunkFolderExpander();
 

@@ -128,9 +128,9 @@ class Issues extends Main {
         this.addFilterDropdownList.should('be.visible');
     }
 
-    addFilter(filterText: string) {
-        this.addFilterDropdownList.select(filterText);
-        this.displayedElementByText(filterText);
+    addFilter(filterSelector: string) {
+        this.addFilterDropdownList.select(filterSelector);
+        cy.get(`[value="${filterSelector}"]`).should('be.visible');
     }
 
     checkStatusCheckbox() {

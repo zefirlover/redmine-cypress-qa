@@ -1,7 +1,7 @@
 import loginPage from '../../pages/login.page';
 import Helpers from '../../helpers/helper-functions';
 
-describe.only('verifying the login', function () {
+describe('verifying the login', function () {
     const email = '299c0a41-190e-4533-891b-b333b9f37e51@mailslurp.com';
     const password = 'HuskTheBest75_';
 
@@ -16,7 +16,7 @@ describe.only('verifying the login', function () {
     it('Verify the user signed in', function () {
         loginPage.visitLoginPage();
 
-        loginPage.signUp(email, password, 'Logged in as');
+        loginPage.signUp(email, password, 'loggedas');
 
         loginPage.checkSignOutReference();
         loginPage.clickOnSignOutReference();
@@ -38,7 +38,7 @@ describe.only('verifying the login', function () {
         loginPage.checkMyPageReference();
         loginPage.clickOnMyPageReference();
 
-        loginPage.displayedElementByText('Reported issues');
+        loginPage.checkReportedIssuesReference();
 
         loginPage.checkSignOutReference();
         loginPage.clickOnSignOutReference();
@@ -46,7 +46,7 @@ describe.only('verifying the login', function () {
     it('Verify the user receive correct exception while entering wrong email or password on the sign up page', function () {
         loginPage.visitLoginPage();
 
-        loginPage.signUp(Helpers.makeLorem(), Helpers.makeLorem(), 'Invalid user or password');
+        loginPage.signUp(Helpers.makeLorem(), Helpers.makeLorem(), 'flash_error');
 
         loginPage.checkPasswordInput();
         loginPage.checkPasswordInputIsEmpty();

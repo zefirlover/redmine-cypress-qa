@@ -32,7 +32,7 @@ describe('verifying the registration', function () {
 
         registerPage.visitRegisterPage();
         registerPage.fillData(email, password, password);
-        registerPage.displayedElementByText('Email has already been taken');
+        registerPage.displayedElementById('errorExplanation');
         registerPage.checkPasswordInputsAreEmpty();
     });
 })

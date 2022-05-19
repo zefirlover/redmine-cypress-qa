@@ -35,6 +35,10 @@ export class Main {
         }
     }
 
+    displayedElementById(elementIdValue: string) {
+        cy.get(`#${elementIdValue}`).should('be.visible');
+    }
+
     checkUrl(expectedUrl: string) {
         cy.url().then(url => {
             if(url == expectedUrl) {
