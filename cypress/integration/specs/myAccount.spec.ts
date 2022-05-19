@@ -1,6 +1,6 @@
 import loginPage from '../../pages/login.page';
 import myAccountPage from '../../pages/myAccount.page';
-import helperFunctions from '../../helpers/helper-functions';
+import Helpers from '../../helpers/helper-functions';
 
 describe('verify the my account page functionality', function () {
     const email = '299c0a41-190e-4533-891b-b333b9f37e51@mailslurp.com';
@@ -16,7 +16,7 @@ describe('verify the my account page functionality', function () {
     const wrongConfirmationMsg = `Password doesn't match confirmation`;
     
     it('Verify the My account page', function () {
-        helperFunctions.verifyingUserIsLogined(email, password);
+        Helpers.verifyingUserIsLogined(email, password);
 
         myAccountPage.checkMyAccountReference();
         myAccountPage.clickOnMyAccountReference();
@@ -28,7 +28,7 @@ describe('verify the my account page functionality', function () {
         loginPage.clickOnSignOutReference();
     });
     it(`Update the user's first name`, function () {
-        helperFunctions.verifyingUserIsLogined(email, password);
+        Helpers.verifyingUserIsLogined(email, password);
 
         myAccountPage.visitMyAccountPage();
 
@@ -39,10 +39,10 @@ describe('verify the my account page functionality', function () {
         loginPage.clickOnSignOutReference();
     });
     it('Verify the Change password page', function () {
-        helperFunctions.verifyingUserIsLogined(email, password);
+        Helpers.verifyingUserIsLogined(email, password);
 
         myAccountPage.visitMyAccountPage();
-        
+
         myAccountPage.checkChangePasswordReference();
         myAccountPage.clickOnChangePasswordReference();
         myAccountPage.checkPasswordInput();
@@ -52,7 +52,7 @@ describe('verify the my account page functionality', function () {
         loginPage.clickOnSignOutReference();
     });
     it(`Update the user's password`, function () {
-        helperFunctions.verifyingUserIsLogined(email, password);
+        Helpers.verifyingUserIsLogined(email, password);
 
         myAccountPage.changeUserPassword(password, newPassword, newPassword, passwordUpdateSuccessMsg);
         myAccountPage.changeUserPassword(newPassword, password, password, passwordUpdateSuccessMsg);
@@ -61,7 +61,7 @@ describe('verify the my account page functionality', function () {
         loginPage.clickOnSignOutReference();
     });
     it(`Verify the updated user's first name can not be blank`, function () {
-        helperFunctions.verifyingUserIsLogined(email, password);
+        Helpers.verifyingUserIsLogined(email, password);
 
         myAccountPage.visitMyAccountPage();
 
@@ -79,7 +79,7 @@ describe('verify the my account page functionality', function () {
         loginPage.clickOnSignOutReference();
     });
     it(`Verify the updated user's first name can not contain only spaces`, function () {
-        helperFunctions.verifyingUserIsLogined(email, password);
+        Helpers.verifyingUserIsLogined(email, password);
 
         myAccountPage.visitMyAccountPage();
 
@@ -97,7 +97,7 @@ describe('verify the my account page functionality', function () {
         loginPage.clickOnSignOutReference();
     });
     it('Verify the wrong old password denied the attempt to change the password', function () {
-        helperFunctions.verifyingUserIsLogined(email, password);
+        Helpers.verifyingUserIsLogined(email, password);
 
         myAccountPage.visitMyPasswordPage();
 
@@ -108,7 +108,7 @@ describe('verify the my account page functionality', function () {
         loginPage.clickOnSignOutReference();
     });
     it('Verify the wrong confirmation password denied the attempt to change the password', function () {
-        helperFunctions.verifyingUserIsLogined(email, password);
+        Helpers.verifyingUserIsLogined(email, password);
 
         myAccountPage.visitMyPasswordPage();
 

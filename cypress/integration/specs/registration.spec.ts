@@ -1,5 +1,5 @@
 import registerPage from '../../pages/register.page';
-import helperFunctions from '../../helpers/helper-functions';
+import Helpers from '../../helpers/helper-functions';
 
 describe('verifying the registration', function () {
     it('Verify the registration page', function () {
@@ -11,7 +11,7 @@ describe('verifying the registration', function () {
         registerPage.checkEmailInput();
     });
     it('Verify the user registration', function () {
-        let password = helperFunctions.makeLorem();
+        let password = Helpers.makeLorem();
         let resultMessage = 'Account was successfully created.'
 
         registerPage.visitRegisterPage();
@@ -27,7 +27,7 @@ describe('verifying the registration', function () {
         registerPage.checkPasswordInputsAreEmpty();
     });
     it('Verify the user receive correct exception while entering email that already been taken on the register page', function () {
-        let password = helperFunctions.makeLorem();
+        let password = Helpers.makeLorem();
         let email = '299c0a41-190e-4533-891b-b333b9f37e51';
 
         registerPage.visitRegisterPage();

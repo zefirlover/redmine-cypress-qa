@@ -2,7 +2,7 @@ import mainPage from '../pages/main.page';
 import loginPage from '../pages/login.page';
 
 class Helpers {
-    makeLorem() {
+    static makeLorem() {
         let text = "";
         let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -12,10 +12,10 @@ class Helpers {
         return text;
     }
 
-    verifyingUserIsLogined(userLogin: string, userPassword: string) {
+    static verifyingUserIsLogined(userLogin: string, userPassword: string) {
         mainPage.visitMainPage();
         loginPage.signUp(userLogin, userPassword, 'Logged in as');
     }
 }
 
-export default new Helpers();
+export default Helpers;
