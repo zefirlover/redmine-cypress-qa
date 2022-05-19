@@ -35,7 +35,6 @@ class Repository extends Page {
 
     visitRepositoryPage() {
         cy.visit('projects/redmine/repository');
-        this.displayedElement('#browser');
     }
 
     checkRepositoryTab() {
