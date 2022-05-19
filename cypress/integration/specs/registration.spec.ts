@@ -5,7 +5,11 @@ import main from '../../pages/main.page';
 describe('verifying the registration', function () {
     it('Verify the registration page', function () {
         main.visitMainPage();
+
+        register.checkRegisterReference();
         register.clickOnRegisterReference();
+        register.checkLoginInput();
+        register.checkEmailInput();
     });
     it('Verify the user registration', function () {
         let password = helper.makeLorem();

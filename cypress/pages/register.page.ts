@@ -3,62 +3,61 @@ import { Page } from '../pages/page'
 import helper from '../helpers/helper-functions';
 
 class Register extends Page {
-
-    registerReferenceSelector = 'a[href="/account/register"]';
-    loginInputSelector = '#user_login';
-    passwordInputSelector = '#user_password';
-    confirmPasswordInputSelector = '#user_password_confirmation';
-    firstNameInputSelector = '#user_firstname';
-    lastNameInputSelector = '#user_lastname';
-    emailInputSelector = '#user_mail';
-    submitButtonSelector = '[name="commit"]';
-
     get registerReference() {
-        return cy.get(this.registerReferenceSelector);
+        return cy.get('a[href="/account/register"]');
     }
 
     get loginInput() {
-        return cy.get(this.loginInputSelector);
+        return cy.get('#user_login');
     }
 
     get passwordInput() {
-        return cy.get(this.passwordInputSelector);
+        return cy.get('#user_password');
     }
 
     get confirmPasswordInput() {
-        return cy.get(this.confirmPasswordInputSelector);
+        return cy.get('#user_password_confirmation');
     }
 
     get firstNameInput() {
-        return cy.get(this.firstNameInputSelector);
+        return cy.get('#user_firstname');
     }
 
     get lastNameInput() {
-        return cy.get(this.lastNameInputSelector);
+        return cy.get('#user_lastname');
     }
 
     get emailInput() {
-        return cy.get(this.emailInputSelector);
+        return cy.get('#user_mail');
     }
 
     get submitButton() {
-        return cy.get(this.submitButtonSelector);
+        return cy.get('[name="commit"]');
     }
 
     visitRegisterPage() {
         cy.visit('account/register');
     }
 
+    checkRegisterReference() {
+        this.registerReference.should('be.visible');
+    }
+
     clickOnRegisterReference() {
-        this.displayedElement(this.registerReferenceSelector);
         this.registerReference.click();
-        this.displayedElement(this.loginInputSelector);
-        this.displayedElement(this.emailInputSelector);
+    }
+
+    checkLoginInput() {
+        this.loginInput.should('be.visible');
+    }
+
+    checkEmailInput() {
+        this.emailInput.should('be.visible');
     }
 
     checkPasswordInputsAreEmpty() {
-        this.displayedElement(this.passwordInputSelector);
-        this.displayedElement(this.confirmPasswordInputSelector);
+        this.passwordInput.should('be.visible');
+        this.confirmPasswordInput.should('be.visible');
         this.passwordInput.should('have.value', '');
         this.confirmPasswordInput.should('have.value', '');
     }
@@ -81,25 +80,25 @@ class Register extends Page {
     }
 
     fillData(inboxId: string, password: string, confirmPassword: string) {
-        this.displayedElement(this.loginInputSelector);
+        this.checkLoginInput();
         this.loginInput.type(inboxId);
         
-        this.displayedElement(this.passwordInputSelector);
+        this.checkEmailInput();
         this.passwordInput.type(password);
 
-        this.displayedElement(this.confirmPasswordInputSelector);
+        this.confirmPasswordInput.should('be.visible');
         this.confirmPasswordInput.type(confirmPassword);
 
-        this.displayedElement(this.firstNameInputSelector);
+        this.firstNameInput.should('be.visible');
         this.firstNameInput.type(helper.makeLorem());
 
-        this.displayedElement(this.lastNameInputSelector);
+        this.lastNameInput.should('be.visible');
         this.lastNameInput.type(helper.makeLorem());
 
-        this.displayedElement(this.emailInputSelector);
+        this.checkEmailInput();
         this.emailInput.type(`${inboxId}@mailslurp.com`);
 
-        this.displayedElement(this.submitButtonSelector);
+        this.submitButton.should('be.visible');
         this.submitButton.click();
       }
 }

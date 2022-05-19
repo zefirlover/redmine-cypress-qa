@@ -1,24 +1,36 @@
 import { Page } from '../pages/page'
 
 class Repository extends Page {
-
-    repositoryTabSelector = 'a[href="/projects/redmine/repository"]';
-    trunkFolderSelector = 'a[href="/projects/redmine/repository/show/trunk"]';
-    githubFolderSelector = 'a[href="/projects/redmine/repository/show/trunk/.github"]';
-    trunkFolderExpanderSelector = 'a[href*="/projects/redmine/repository/show/trunk"]';
-    revisionInputSelector = '#rev';
-    changesetRevisionIdSelector = '[class="id"]';
-
     get repositoryTab() {
-        return cy.get(this.repositoryTabSelector);
+        return cy.get('a[href="/projects/redmine/repository"]');
     }
 
     get trunkFolderExpander() {
-        return cy.get(this.trunkFolderExpanderSelector);
+        return cy.get('a[href="/projects/redmine/repository/show/trunk"]');
     }
 
     get revisionInput() {
-        return cy.get(this.revisionInputSelector);
+        return cy.get('#rev');
+    }
+
+    get entriesTable() {
+        return cy.get('#browser');
+    }
+
+    get trunkFolder() {
+        return cy.get('a[href="/projects/redmine/repository/show/trunk"]');
+    }
+
+    get githubFolder() {
+        return cy.get('a[href="/projects/redmine/repository/show/trunk/.github"]');
+    }
+
+    get repositoryFiles() {
+        return cy.get('[class*="icon icon-file"]');
+    }
+
+    get changesetRevisionId() {
+        return cy.get('[class="id"]');
     }
 
     visitRepositoryPage() {
@@ -26,33 +38,39 @@ class Repository extends Page {
         this.displayedElement('#browser');
     }
 
+    checkRepositoryTab() {
+        this.repositoryTab.should('be.visible');
+    }
+
     clickOnRepositoryTab() {
-        this.displayedElement(this.repositoryTabSelector);
         this.repositoryTab.click();
-        this.displayedElement('#browser');
+    }
+
+    checkEntriesTable() {
+        this.entriesTable.should('be.visible');
     }
 
     clickOnTrunkFolderExpander() {
-        this.displayedElement(this.trunkFolderExpanderSelector);
+        this.trunkFolderExpander.should('be.visible');
         this.trunkFolderExpander.click();
     }
 
     expanderFunctionalityTest() {
-        this.displayedElement(this.trunkFolderSelector);
-        this.notDisplayedElement(this.githubFolderSelector);
+        this.trunkFolder.should('be.visible');
+        this.githubFolder.should('not.be.visible');
 
         this.clickOnTrunkFolderExpander();
 
-        this.displayedElement(this.githubFolderSelector);
+        this.githubFolder.should('be.visible');
     }
 
     insertDataInRevisionFilter(insertText: string) {
-        this.displayedElement(this.revisionInputSelector);
+        this.revisionInput.should('be.visible');
         this.revisionInput.type(insertText).type('{enter}');
     }
 
     checkFilesNotContainsExpander() {
-        cy.get(`[class*="icon icon-file"]`).each(element => {
+        this.repositoryFiles.each(element => {
             let parentElement = element.parent();
             let expander = parentElement.children('[class="expander"]');
             if(expander.length > 0) {
@@ -62,8 +80,10 @@ class Repository extends Page {
     }
 
     expectFirstRevisionIdIs(revisionId: string) {
-        this.displayedElement(this.changesetRevisionIdSelector);
-        this.expectOneFromElementsContains(this.changesetRevisionIdSelector, 0, revisionId);
+        this.changesetRevisionId.should('be.visible');
+        this.changesetRevisionId.eq(0).children().then(element => {
+            expect(element).to.contain(revisionId);
+        });
     }
 }
 

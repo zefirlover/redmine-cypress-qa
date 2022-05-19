@@ -1,7 +1,7 @@
 import main from '../../pages/main.page';
 import issues from '../../pages/issues.page';
 
-describe.only('verifying the issues functionality', function () {
+describe('verifying the issues functionality', function () {
     it('Verify the issues page', function () {
         main.visitMainPage();
         issues.checkIssuesTab()

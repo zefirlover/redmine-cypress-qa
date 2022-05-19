@@ -82,7 +82,7 @@ class MyAccount extends Page {
         this.saveButton.should('be.visible');
         this.saveButton.click();
         this.displayedElementByText(messageText);
-        this.firstNameInput.should('have.value', messageText);
+        this.firstNameInput.should('have.value', name);
     };
 
     changeUserPassword(oldPassword: string, newPassword: string, confirmPassword: string, messageText: string) {

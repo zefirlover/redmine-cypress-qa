@@ -1,10 +1,13 @@
 import repository from '../../pages/repository.page';
 import main from '../../pages/main.page';
 
-describe('verify the repository functionality', function () {
+describe.only('verify the repository functionality', function () {
     it('Verify the repository page', function () {
         main.visitMainPage();
+
+        repository.checkRepositoryTab();
         repository.clickOnRepositoryTab();
+        repository.checkEntriesTable();
     });
     it(`Verify the trunk folder's expander on a repository page`, function () {
         repository.visitRepositoryPage();
