@@ -1,29 +1,29 @@
-import repository from '../../pages/repository.page';
-import main from '../../pages/main.page';
+import repositoryPage from '../../pages/repository.page';
+import mainPage from '../../pages/main.page';
 
-describe.only('verify the repository functionality', function () {
+describe('verify the repository functionality', function () {
     it('Verify the repository page', function () {
-        main.visitMainPage();
+        mainPage.visitMainPage();
 
-        repository.checkRepositoryTab();
-        repository.clickOnRepositoryTab();
-        repository.checkEntriesTable();
+        repositoryPage.checkRepositoryTab();
+        repositoryPage.clickOnRepositoryTab();
+        repositoryPage.checkEntriesTable();
     });
     it(`Verify the trunk folder's expander on a repository page`, function () {
-        repository.visitRepositoryPage();
-        repository.expanderFunctionalityTest();
+        repositoryPage.visitRepositoryPage();
+        repositoryPage.expanderFunctionalityTest();
     });
     it('Verify the expander is places only near the folder in the trunk folder on a repository page', function () {
-        repository.visitRepositoryPage();
-        repository.clickOnTrunkFolderExpander();
-        repository.checkFilesNotContainsExpander();
+        repositoryPage.visitRepositoryPage();
+        repositoryPage.clickOnTrunkFolderExpander();
+        repositoryPage.checkFilesNotContainsExpander();
     });
     it('Verify the revision repository filter work on a repository page', function () {
         let number = '21563';
 
-        repository.visitRepositoryPage();
-        repository.insertDataInRevisionFilter(number);
-        repository.displayedElementByText(` @ ${number} `);
-        repository.expectFirstRevisionIdIs(number);
+        repositoryPage.visitRepositoryPage();
+        repositoryPage.insertDataInRevisionFilter(number);
+        repositoryPage.displayedElementByText(` @ ${number} `);
+        repositoryPage.expectFirstRevisionIdIs(number);
     })
 })

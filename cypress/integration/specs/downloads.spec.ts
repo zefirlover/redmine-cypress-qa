@@ -1,11 +1,11 @@
-import downloads from '../../pages/downloads.page'
-import main from '../../pages/main.page'
+import downloadsPage from '../../pages/downloads.page'
+import mainPage from '../../pages/main.page'
 
 describe('verify the downloads page functionality', function () {
     it('Verify the downloads page', function () {
-        main.visitMainPage();
-        downloads.checkDownloadTab();
-        downloads.clickOnDownloadTab();
-        downloads.checkFileDownloadReference();
+        mainPage.visitMainPage();
+        downloadsPage.checkDownloadTab();
+        downloadsPage.clickOnDownloadTab();
+        downloadsPage.checkFileDownloadReference();
     })
 })

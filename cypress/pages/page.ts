@@ -58,4 +58,4 @@ export class Page {
     }
 }
 
-export default new Page();
+//export default new Page();

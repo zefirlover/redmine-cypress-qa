@@ -1,54 +1,54 @@
-import main from '../../pages/main.page';
-import login from '../../pages/login.page';
-import helper from '../../helpers/helper-functions';
+import mainPage from '../../pages/main.page';
+import loginPage from '../../pages/login.page';
+import helperFunctions from '../../helpers/helper-functions';
 
 describe('verifying the login', function () {
     const email = '299c0a41-190e-4533-891b-b333b9f37e51@mailslurp.com';
     const password = 'HuskTheBest75_';
 
     it('Verify the login page', function () {
-        main.visitMainPage();
+        mainPage.visitMainPage();
 
-        login.checkSignInReference();
-        login.clickOnSignInReference();
-        login.checkPasswordInput();
-        login.checkUsernameInput();
+        loginPage.checkSignInReference();
+        loginPage.clickOnSignInReference();
+        loginPage.checkPasswordInput();
+        loginPage.checkUsernameInput();
     });
     it('Verify the user signed in', function () {
-        login.visitLoginPage();
+        loginPage.visitLoginPage();
 
-        login.signUp(email, password, 'Logged in as');
+        loginPage.signUp(email, password, 'Logged in as');
 
-        login.checkSignOutReference();
-        login.clickOnSignOutReference();
+        loginPage.checkSignOutReference();
+        loginPage.clickOnSignOutReference();
     });
     it('Verify the users page', function () {
-        helper.verifyingUserIsLogined(email, password);
+        helperFunctions.verifyingUserIsLogined(email, password);
 
-        main.checkUserPageReference();
-        main.clickOnUserPageReference();
+        mainPage.checkUserPageReference();
+        mainPage.clickOnUserPageReference();
 
-        login.displayedElementByText('Mailslurp User');
+        loginPage.displayedElementByText('Mailslurp User');
 
-        login.checkSignOutReference();
-        login.clickOnSignOutReference();
+        loginPage.checkSignOutReference();
+        loginPage.clickOnSignOutReference();
     });
     it('Verify the "My page" page', function () {
-        helper.verifyingUserIsLogined(email, password);
+        helperFunctions.verifyingUserIsLogined(email, password);
 
-        main.clickOnMyPageReference();
+        mainPage.clickOnMyPageReference();
 
-        login.displayedElementByText('Reported issues');
+        loginPage.displayedElementByText('Reported issues');
 
-        login.checkSignOutReference();
-        login.clickOnSignOutReference();
+        loginPage.checkSignOutReference();
+        loginPage.clickOnSignOutReference();
     });
     it('Verify the user receive correct exception while entering wrong email or password on the sign up page', function () {
-        login.visitLoginPage();
+        loginPage.visitLoginPage();
 
-        login.signUp(helper.makeLorem(), helper.makeLorem(), 'Invalid user or password');
+        loginPage.signUp(helperFunctions.makeLorem(), helperFunctions.makeLorem(), 'Invalid user or password');
 
-        login.checkPasswordInput();
-        login.checkPasswordInputIsEmpty();
+        loginPage.checkPasswordInput();
+        loginPage.checkPasswordInputIsEmpty();
     })
 })
