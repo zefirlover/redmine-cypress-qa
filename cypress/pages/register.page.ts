@@ -1,5 +1,5 @@
 /// <reference types="cypress-mailslurp" />
-import helperFunctions from '../helpers/helper-functions';
+import Helpers from '../helpers/helper-functions';
 import { Main } from './main.page';
 
 class Register extends Main {
@@ -90,10 +90,10 @@ class Register extends Main {
         this.confirmPasswordInput.type(confirmPassword);
 
         this.firstNameInput.should('be.visible');
-        this.firstNameInput.type(helperFunctions.makeLorem());
+        this.firstNameInput.type(Helpers.makeLorem());
 
         this.lastNameInput.should('be.visible');
-        this.lastNameInput.type(helperFunctions.makeLorem());
+        this.lastNameInput.type(Helpers.makeLorem());
 
         this.checkEmailInput();
         this.emailInput.type(`${inboxId}@mailslurp.com`);

@@ -1,4 +1,3 @@
-import loginPage from '../../pages/login.page';
 import myAccountPage from '../../pages/myAccount.page';
 import Helpers from '../../helpers/helper-functions';
 
@@ -24,8 +23,8 @@ describe('verify the my account page functionality', function () {
         myAccountPage.checkLastNameInput();
         myAccountPage.checkEmailInput();
 
-        loginPage.checkSignOutReference();
-        loginPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutReference();
+        myAccountPage.clickOnSignOutReference();
     });
     it(`Update the user's first name`, function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -35,8 +34,8 @@ describe('verify the my account page functionality', function () {
         myAccountPage.updateFirstName('Casual', userUpdateSuccessMsg);
         myAccountPage.updateFirstName('Mailslurp', userUpdateSuccessMsg);
 
-        loginPage.checkSignOutReference();
-        loginPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutReference();
+        myAccountPage.clickOnSignOutReference();
     });
     it('Verify the Change password page', function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -48,8 +47,8 @@ describe('verify the my account page functionality', function () {
         myAccountPage.checkPasswordInput();
         myAccountPage.checkNewPasswordConfirmInput();
 
-        loginPage.checkSignOutReference();
-        loginPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutReference();
+        myAccountPage.clickOnSignOutReference();
     });
     it(`Update the user's password`, function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -57,8 +56,8 @@ describe('verify the my account page functionality', function () {
         myAccountPage.changeUserPassword(password, newPassword, newPassword, passwordUpdateSuccessMsg);
         myAccountPage.changeUserPassword(newPassword, password, password, passwordUpdateSuccessMsg);
 
-        loginPage.checkSignOutReference();
-        loginPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutReference();
+        myAccountPage.clickOnSignOutReference();
     });
     it(`Verify the updated user's first name can not be blank`, function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -75,8 +74,8 @@ describe('verify the my account page functionality', function () {
 
         myAccountPage.expectFirstNameIsMailslurp();
 
-        loginPage.checkSignOutReference();
-        loginPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutReference();
+        myAccountPage.clickOnSignOutReference();
     });
     it(`Verify the updated user's first name can not contain only spaces`, function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -93,8 +92,8 @@ describe('verify the my account page functionality', function () {
 
         myAccountPage.expectFirstNameIsMailslurp();
 
-        loginPage.checkSignOutReference();
-        loginPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutReference();
+        myAccountPage.clickOnSignOutReference();
     });
     it('Verify the wrong old password denied the attempt to change the password', function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -104,8 +103,8 @@ describe('verify the my account page functionality', function () {
         myAccountPage.changeUserPassword(wrongPassword, newPassword, newPassword, wrongPasswordMsg);
         myAccountPage.changeUserPassword(newPassword, password, password, wrongPasswordMsg);
 
-        loginPage.checkSignOutReference();
-        loginPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutReference();
+        myAccountPage.clickOnSignOutReference();
     });
     it('Verify the wrong confirmation password denied the attempt to change the password', function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -115,7 +114,7 @@ describe('verify the my account page functionality', function () {
         myAccountPage.changeUserPassword(password, newPassword, confirmPassword, wrongConfirmationMsg);
         myAccountPage.changeUserPassword(newPassword, password, password, wrongPasswordMsg);
 
-        loginPage.checkSignOutReference();
-        loginPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutReference();
+        myAccountPage.clickOnSignOutReference();
     });
 })
