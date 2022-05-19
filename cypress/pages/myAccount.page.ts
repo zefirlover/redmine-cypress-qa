@@ -1,6 +1,6 @@
-import { Page } from "./page";
+import { Main } from "./main.page";
 
-class MyAccount extends Page {
+class MyAccount extends Main {
     get myAccountReference() {
         return cy.get('a[href="/my/account"]');
     }

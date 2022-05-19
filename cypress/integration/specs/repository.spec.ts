@@ -1,9 +1,8 @@
 import repositoryPage from '../../pages/repository.page';
-import mainPage from '../../pages/main.page';
 
 describe('verify the repository functionality', function () {
     it('Verify the repository page', function () {
-        mainPage.visitMainPage();
+        repositoryPage.visitMainPage();
 
         repositoryPage.checkRepositoryTab();
         repositoryPage.clickOnRepositoryTab();

@@ -1,6 +1,6 @@
-import { Page } from '../pages/page'
+import { Main } from './main.page';
 
-class Login extends Page {
+class Login extends Main {
     email = '299c0a41-190e-4533-891b-b333b9f37e51@mailslurp.com';
     password = 'HuskTheBest75_';
 

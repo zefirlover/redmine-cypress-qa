@@ -1,10 +1,9 @@
 import registerPage from '../../pages/register.page';
 import helperFunctions from '../../helpers/helper-functions';
-import mainPage from '../../pages/main.page';
 
 describe('verifying the registration', function () {
     it('Verify the registration page', function () {
-        mainPage.visitMainPage();
+        registerPage.visitMainPage();
 
         registerPage.checkRegisterReference();
         registerPage.clickOnRegisterReference();

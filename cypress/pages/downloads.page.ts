@@ -1,6 +1,6 @@
-import { Page } from './page'
+import { Main } from "./main.page";
 
-class Downloads extends Page {
+class Downloads extends Main {
     get downloadTab() {
         return cy.get('a[class="download"]');
     }

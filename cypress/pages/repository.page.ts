@@ -1,6 +1,6 @@
-import { Page } from '../pages/page'
+import { Main } from './main.page';
 
-class Repository extends Page {
+class Repository extends Main {
     get repositoryTab() {
         return cy.get('a[href="/projects/redmine/repository"]');
     }

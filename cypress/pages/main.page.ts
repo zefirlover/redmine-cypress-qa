@@ -1,6 +1,6 @@
-import { Page } from '../pages/page'
+/// <reference types="cypress" />
 
-class Main extends Page {
+export class Main {
     get userPageReference() {
         return cy.get('a[href*="/users/"]');
     }
@@ -27,6 +27,20 @@ class Main extends Page {
 
     clickOnMyPageReference() {
         this.myPageReference.click();
+    }
+
+    displayedElementByText(elementText: string) {
+        if (cy.contains(elementText)) {
+            assert.isOk('everything', 'element is displayed');
+        }
+    }
+
+    checkUrl(expectedUrl: string) {
+        cy.url().then(url => {
+            if(url == expectedUrl) {
+                assert.isOk('everything', 'the URL is same as expected');
+            }
+        });
     }
 }
 

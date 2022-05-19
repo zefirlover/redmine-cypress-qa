@@ -1,4 +1,3 @@
-import mainPage from '../../pages/main.page';
 import loginPage from '../../pages/login.page';
 import helperFunctions from '../../helpers/helper-functions';
 
@@ -7,7 +6,7 @@ describe('verifying the login', function () {
     const password = 'HuskTheBest75_';
 
     it('Verify the login page', function () {
-        mainPage.visitMainPage();
+        loginPage.visitMainPage();
 
         loginPage.checkSignInReference();
         loginPage.clickOnSignInReference();
@@ -25,8 +24,8 @@ describe('verifying the login', function () {
     it('Verify the users page', function () {
         helperFunctions.verifyingUserIsLogined(email, password);
 
-        mainPage.checkUserPageReference();
-        mainPage.clickOnUserPageReference();
+        loginPage.checkUserPageReference();
+        loginPage.clickOnUserPageReference();
 
         loginPage.displayedElementByText('Mailslurp User');
 
@@ -36,8 +35,8 @@ describe('verifying the login', function () {
     it('Verify the "My page" page', function () {
         helperFunctions.verifyingUserIsLogined(email, password);
 
-        mainPage.checkMyPageReference();
-        mainPage.clickOnMyPageReference();
+        loginPage.checkMyPageReference();
+        loginPage.clickOnMyPageReference();
 
         loginPage.displayedElementByText('Reported issues');
 

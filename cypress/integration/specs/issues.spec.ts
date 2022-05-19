@@ -1,9 +1,8 @@
-import mainPage from '../../pages/main.page';
 import issuesPage from '../../pages/issues.page';
 
 describe('verifying the issues functionality', function () {
     it('Verify the issues page', function () {
-        mainPage.visitMainPage();
+        issuesPage.visitMainPage();
         issuesPage.checkIssuesTab()
         issuesPage.clickOnIssuesTab();
         issuesPage.issuesTableIsDisplayed();

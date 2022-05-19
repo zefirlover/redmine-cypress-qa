@@ -1,8 +1,8 @@
 /// <reference types="cypress-mailslurp" />
-import { Page } from '../pages/page'
 import helperFunctions from '../helpers/helper-functions';
+import { Main } from './main.page';
 
-class Register extends Page {
+class Register extends Main {
     get registerReference() {
         return cy.get('a[href="/account/register"]');
     }

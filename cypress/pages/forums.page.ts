@@ -1,6 +1,6 @@
-import { Page } from './page'
+import { Main } from './main.page';
 
-class Forums extends Page {
+class Forums extends Main {
     get forumsTab() {
         return cy.get('a[href="/projects/redmine/boards"]');
     }

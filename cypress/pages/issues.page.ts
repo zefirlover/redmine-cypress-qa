@@ -1,6 +1,6 @@
-import { Page } from '../pages/page'
+import { Main } from './main.page';
 
-class Issues extends Page {
+class Issues extends Main {
     get issuesTab() {
         return cy.get('a[href*="issues"]');
     }
