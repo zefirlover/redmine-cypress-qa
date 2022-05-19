@@ -63,8 +63,11 @@ class Repository extends Page {
         this.githubFolder.should('be.visible');
     }
 
-    insertDataInRevisionFilter(insertText: string) {
+    checkRevisionInput() {
         this.revisionInput.should('be.visible');
+    }
+
+    insertDataInRevisionFilter(insertText: string) {
         this.revisionInput.type(insertText).type('{enter}');
     }
 
@@ -78,8 +81,11 @@ class Repository extends Page {
         })
     }
 
-    expectFirstRevisionIdIs(revisionId: string) {
+    checkChangesetRevisionId() {
         this.changesetRevisionId.should('be.visible');
+    }
+
+    expectFirstRevisionIdIs(revisionId: string) {
         this.changesetRevisionId.eq(0).children().then(element => {
             expect(element).to.contain(revisionId);
         });

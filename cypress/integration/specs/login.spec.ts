@@ -36,6 +36,7 @@ describe('verifying the login', function () {
     it('Verify the "My page" page', function () {
         helperFunctions.verifyingUserIsLogined(email, password);
 
+        mainPage.checkMyPageReference();
         mainPage.clickOnMyPageReference();
 
         loginPage.displayedElementByText('Reported issues');

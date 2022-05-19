@@ -69,18 +69,29 @@ class MyAccount extends Page {
         this.emailInput.should('be.visible');
     }
 
-    clickOnChangePasswordReference() {
+    checkChangePasswordReference() {
         this.changePasswordReference.should('be.visible');
+    }
+
+    clickOnChangePasswordReference() {
         this.changePasswordReference.click();
+    }
+
+    checkPasswordInput() {
         this.passwordInput.should('be.visible');
+    }
+
+    checkNewPasswordConfirmInput() {
         this.newPasswordConfirmInput.should('be.visible');
     }
 
     updateFirstName(name: string, messageText: string) {
         this.firstNameInput.should('be.visible');
         this.firstNameInput.clear().type(name);
+
         this.saveButton.should('be.visible');
         this.saveButton.click();
+
         this.displayedElementByText(messageText);
         this.firstNameInput.should('have.value', name);
     };

@@ -42,7 +42,11 @@ describe('verify the my account page functionality', function () {
         helperFunctions.verifyingUserIsLogined(email, password);
 
         myAccountPage.visitMyAccountPage();
+        
+        myAccountPage.checkChangePasswordReference();
         myAccountPage.clickOnChangePasswordReference();
+        myAccountPage.checkPasswordInput();
+        myAccountPage.checkNewPasswordConfirmInput();
 
         loginPage.checkSignOutReference();
         loginPage.clickOnSignOutReference();

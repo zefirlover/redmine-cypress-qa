@@ -22,8 +22,13 @@ describe('verify the repository functionality', function () {
         let number = '21563';
 
         repositoryPage.visitRepositoryPage();
+
+        repositoryPage.checkRevisionInput();
         repositoryPage.insertDataInRevisionFilter(number);
+
         repositoryPage.displayedElementByText(` @ ${number} `);
+
+        repositoryPage.checkChangesetRevisionId();
         repositoryPage.expectFirstRevisionIdIs(number);
     })
 })
