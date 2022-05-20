@@ -3,7 +3,7 @@ import Helpers from '../helpers/helper-functions';
 import { Main } from './main.page';
 
 class Register extends Main {
-    get registerReference() {
+    get registerLink() {
         return cy.get('a[href="/account/register"]');
     }
 
@@ -39,12 +39,12 @@ class Register extends Main {
         cy.visit('account/register');
     }
 
-    checkRegisterReference() {
-        this.registerReference.should('be.visible');
+    checkRegisterLink() {
+        this.registerLink.should('be.visible');
     }
 
-    clickOnRegisterReference() {
-        this.registerReference.click();
+    clickOnRegisterLink() {
+        this.registerLink.click();
     }
 
     checkLoginInput() {

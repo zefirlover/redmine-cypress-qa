@@ -4,7 +4,7 @@ export class Login extends Main {
     email = '299c0a41-190e-4533-891b-b333b9f37e51@mailslurp.com';
     password = 'HuskTheBest75_';
 
-    get signInReference() {
+    get signInLink() {
         return cy.get('a[href="/login"]');
     }
 
@@ -20,11 +20,11 @@ export class Login extends Main {
         return cy.get('[name="login"]');
     }
 
-    get signOutReference() {
+    get signOutLink() {
         return cy.get('a[href="/logout"]');
     }
 
-    get reportedIssuesReference() {
+    get reportedIssuesLink() {
         return cy.get('a[href*="/issues?author_id=me"]');
     }
 
@@ -32,12 +32,12 @@ export class Login extends Main {
         cy.visit('login');
     }
 
-    checkSignInReference() {
-        this.signInReference.should('be.visible');
+    checkSignInLink() {
+        this.signInLink.should('be.visible');
     }
 
-    clickOnSignInReference() {
-        this.signInReference.click();
+    clickOnSignInLink() {
+        this.signInLink.click();
     }
 
     checkUsernameInput() {
@@ -56,17 +56,17 @@ export class Login extends Main {
         this.loginButton.click();
     }
 
-    checkSignOutReference() {
-        this.signOutReference.should('be.visible');
+    checkSignOutLink() {
+        this.signOutLink.should('be.visible');
     }
 
-    clickOnSignOutReference() {
-        this.signOutReference.click();
+    clickOnSignOutLink() {
+        this.signOutLink.click();
     }
 
     signUp(username: string, password: string, checkTextId: string) {
-        this.checkSignInReference();
-        this.clickOnSignInReference();
+        this.checkSignInLink();
+        this.clickOnSignInLink();
 
         this.checkUsernameInput();
         this.usernameInput.type(username);
@@ -85,8 +85,8 @@ export class Login extends Main {
         this.passwordInput.should('have.value', '');
     }
 
-    checkReportedIssuesReference() {
-        this.reportedIssuesReference.should('be.visible');
+    checkReportedIssuesLink() {
+        this.reportedIssuesLink.should('be.visible');
     }
 }
 

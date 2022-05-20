@@ -5,8 +5,8 @@ describe('verifying the registration', function () {
     it('Verify the registration page', function () {
         registerPage.visitMainPage();
 
-        registerPage.checkRegisterReference();
-        registerPage.clickOnRegisterReference();
+        registerPage.checkRegisterLink();
+        registerPage.clickOnRegisterLink();
         registerPage.checkLoginInput();
         registerPage.checkEmailInput();
     });

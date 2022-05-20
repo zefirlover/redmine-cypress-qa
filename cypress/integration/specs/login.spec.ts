@@ -8,8 +8,8 @@ describe('verifying the login', function () {
     it('Verify the login page', function () {
         loginPage.visitMainPage();
 
-        loginPage.checkSignInReference();
-        loginPage.clickOnSignInReference();
+        loginPage.checkSignInLink();
+        loginPage.clickOnSignInLink();
         loginPage.checkPasswordInput();
         loginPage.checkUsernameInput();
     });
@@ -18,30 +18,30 @@ describe('verifying the login', function () {
 
         loginPage.signUp(email, password, 'loggedas');
 
-        loginPage.checkSignOutReference();
-        loginPage.clickOnSignOutReference();
+        loginPage.checkSignOutLink();
+        loginPage.clickOnSignOutLink();
     });
     it('Verify the users page', function () {
         Helpers.verifyingUserIsLogined(email, password);
 
-        loginPage.checkUserPageReference();
-        loginPage.clickOnUserPageReference();
+        loginPage.checkUserPageLink();
+        loginPage.clickOnUserPageLink();
 
         loginPage.displayedElementByText('Mailslurp User');
 
-        loginPage.checkSignOutReference();
-        loginPage.clickOnSignOutReference();
+        loginPage.checkSignOutLink();
+        loginPage.clickOnSignOutLink();
     });
     it('Verify the "My page" page', function () {
         Helpers.verifyingUserIsLogined(email, password);
 
-        loginPage.checkMyPageReference();
-        loginPage.clickOnMyPageReference();
+        loginPage.checkMyPageLink();
+        loginPage.clickOnMyPageLink();
 
-        loginPage.checkReportedIssuesReference();
+        loginPage.checkReportedIssuesLink();
 
-        loginPage.checkSignOutReference();
-        loginPage.clickOnSignOutReference();
+        loginPage.checkSignOutLink();
+        loginPage.clickOnSignOutLink();
     });
     it('Verify the user receive correct exception while entering wrong email or password on the sign up page', function () {
         loginPage.visitLoginPage();

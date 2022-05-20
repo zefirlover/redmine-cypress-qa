@@ -14,14 +14,14 @@ describe('verify the my account page functionality', function () {
     it('Verify the My account page', function () {
         Helpers.verifyingUserIsLogined(email, password);
 
-        myAccountPage.checkMyAccountReference();
-        myAccountPage.clickOnMyAccountReference();
+        myAccountPage.checkMyAccountLink();
+        myAccountPage.clickOnMyAccountLink();
         myAccountPage.checkFirstNameInput();
         myAccountPage.checkLastNameInput();
         myAccountPage.checkEmailInput();
 
-        myAccountPage.checkSignOutReference();
-        myAccountPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutLink();
+        myAccountPage.clickOnSignOutLink();
     });
     it(`Update the user's first name`, function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -31,21 +31,21 @@ describe('verify the my account page functionality', function () {
         myAccountPage.updateFirstName('Casual', userUpdateSuccessMsg);
         myAccountPage.updateFirstName('Mailslurp', userUpdateSuccessMsg);
 
-        myAccountPage.checkSignOutReference();
-        myAccountPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutLink();
+        myAccountPage.clickOnSignOutLink();
     });
     it('Verify the Change password page', function () {
         Helpers.verifyingUserIsLogined(email, password);
 
         myAccountPage.visitMyAccountPage();
 
-        myAccountPage.checkChangePasswordReference();
-        myAccountPage.clickOnChangePasswordReference();
+        myAccountPage.checkChangePasswordLink();
+        myAccountPage.clickOnChangePasswordLink();
         myAccountPage.checkPasswordInput();
         myAccountPage.checkNewPasswordConfirmInput();
 
-        myAccountPage.checkSignOutReference();
-        myAccountPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutLink();
+        myAccountPage.clickOnSignOutLink();
     });
     it(`Update the user's password`, function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -53,8 +53,8 @@ describe('verify the my account page functionality', function () {
         myAccountPage.changeUserPassword(password, newPassword, newPassword, '#flash_notice');
         myAccountPage.changeUserPassword(newPassword, password, password, '#flash_notice');
 
-        myAccountPage.checkSignOutReference();
-        myAccountPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutLink();
+        myAccountPage.clickOnSignOutLink();
     });
     it(`Verify the updated user's first name can not be blank`, function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -63,16 +63,16 @@ describe('verify the my account page functionality', function () {
 
         myAccountPage.updateFirstName(' ', firstNameCantBeBlankMsg);
 
-        myAccountPage.checkMyAccountReference();
-        myAccountPage.clickOnMyAccountReference();
+        myAccountPage.checkMyAccountLink();
+        myAccountPage.clickOnMyAccountLink();
         myAccountPage.checkFirstNameInput();
         myAccountPage.checkLastNameInput();
         myAccountPage.checkEmailInput();
 
         myAccountPage.expectFirstNameIsMailslurp();
 
-        myAccountPage.checkSignOutReference();
-        myAccountPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutLink();
+        myAccountPage.clickOnSignOutLink();
     });
     it(`Verify the updated user's first name can not contain only spaces`, function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -81,16 +81,16 @@ describe('verify the my account page functionality', function () {
 
         myAccountPage.updateFirstName('          ', firstNameCantBeBlankMsg);
 
-        myAccountPage.checkMyAccountReference();
-        myAccountPage.clickOnMyAccountReference();
+        myAccountPage.checkMyAccountLink();
+        myAccountPage.clickOnMyAccountLink();
         myAccountPage.checkFirstNameInput();
         myAccountPage.checkLastNameInput();
         myAccountPage.checkEmailInput();
 
         myAccountPage.expectFirstNameIsMailslurp();
 
-        myAccountPage.checkSignOutReference();
-        myAccountPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutLink();
+        myAccountPage.clickOnSignOutLink();
     });
     it('Verify the wrong old password denied the attempt to change the password', function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -100,8 +100,8 @@ describe('verify the my account page functionality', function () {
         myAccountPage.changeUserPassword(wrongPassword, newPassword, newPassword, '#flash_error');
         myAccountPage.changeUserPassword(newPassword, password, password, '#flash_error');
 
-        myAccountPage.checkSignOutReference();
-        myAccountPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutLink();
+        myAccountPage.clickOnSignOutLink();
     });
     it('Verify the wrong confirmation password denied the attempt to change the password', function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -111,7 +111,7 @@ describe('verify the my account page functionality', function () {
         myAccountPage.changeUserPassword(password, newPassword, confirmPassword, '#errorExplanation');
         myAccountPage.changeUserPassword(newPassword, password, password, '#flash_error');
 
-        myAccountPage.checkSignOutReference();
-        myAccountPage.clickOnSignOutReference();
+        myAccountPage.checkSignOutLink();
+        myAccountPage.clickOnSignOutLink();
     });
 })

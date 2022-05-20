@@ -5,6 +5,6 @@ describe('verify the downloads page functionality', function () {
         downloadsPage.visitMainPage();
         downloadsPage.checkDownloadTab();
         downloadsPage.clickOnDownloadTab();
-        downloadsPage.checkFileDownloadReference();
+        downloadsPage.checkFileDownloadLink();
     })
 })

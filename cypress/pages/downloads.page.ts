@@ -5,7 +5,7 @@ class Downloads extends Main {
         return cy.get('a[class="download"]');
     }
 
-    get downloadGzFileReference() {
+    get downloadGzFileLink() {
         return cy.get('a[href="/releases/redmine-4.2.6.tar.gz"]');
     }
 
@@ -17,8 +17,8 @@ class Downloads extends Main {
         this.downloadTab.click();
     }
 
-    checkFileDownloadReference() {
-        this.downloadGzFileReference.should('be.visible');
+    checkFileDownloadLink() {
+        this.downloadGzFileLink.should('be.visible');
     }
 }
 

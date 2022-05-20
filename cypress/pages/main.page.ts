@@ -1,11 +1,11 @@
 /// <reference types="cypress" />
 
 export class Main {
-    get userPageReference() {
+    get userPageLink() {
         return cy.get('a[href*="/users/"]');
     }
 
-    get myPageReference() {
+    get myPageLink() {
         return cy.get('a[href*="/my/page"]');
     }
 
@@ -13,20 +13,20 @@ export class Main {
         cy.visit('');
     }
 
-    checkUserPageReference() {
-        this.userPageReference.should('be.visible');
+    checkUserPageLink() {
+        this.userPageLink.should('be.visible');
     }
 
-    clickOnUserPageReference() {
-        this.userPageReference.click();
+    clickOnUserPageLink() {
+        this.userPageLink.click();
     }
 
-    checkMyPageReference() {
-        this.myPageReference.should('be.visible');
+    checkMyPageLink() {
+        this.myPageLink.should('be.visible');
     }
 
-    clickOnMyPageReference() {
-        this.myPageReference.click();
+    clickOnMyPageLink() {
+        this.myPageLink.click();
     }
 
     displayedElementByText(elementText: string) {

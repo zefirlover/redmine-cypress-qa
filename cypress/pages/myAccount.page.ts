@@ -1,7 +1,7 @@
 import { Login } from "./login.page";
 
 class MyAccount extends Login {
-    get myAccountReference() {
+    get myAccountLink() {
         return cy.get('a[href="/my/account"]');
     }
 
@@ -25,7 +25,7 @@ class MyAccount extends Login {
         return cy.get('[name="commit"]');
     }
 
-    get changePasswordReference() {
+    get changePasswordLink() {
         return cy.get('a[href="/my/password"]');
     }
 
@@ -49,12 +49,12 @@ class MyAccount extends Login {
         cy.visit('my/password');
     }
 
-    checkMyAccountReference() {
-        this.myAccountReference.should('be.visible');
+    checkMyAccountLink() {
+        this.myAccountLink.should('be.visible');
     }
 
-    clickOnMyAccountReference() {
-        this.myAccountReference.click();
+    clickOnMyAccountLink() {
+        this.myAccountLink.click();
     }
 
     checkFirstNameInput() {
@@ -69,12 +69,12 @@ class MyAccount extends Login {
         this.emailInput.should('be.visible');
     }
 
-    checkChangePasswordReference() {
-        this.changePasswordReference.should('be.visible');
+    checkChangePasswordLink() {
+        this.changePasswordLink.should('be.visible');
     }
 
-    clickOnChangePasswordReference() {
-        this.changePasswordReference.click();
+    clickOnChangePasswordLink() {
+        this.changePasswordLink.click();
     }
 
     checkPasswordInput() {
