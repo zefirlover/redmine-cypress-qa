@@ -1,10 +1,10 @@
 import loginPage from '../../pages/login.page';
 import Helpers from '../../helpers/helper-functions';
 
-describe('verifying the login', function () {
-    const email = '299c0a41-190e-4533-891b-b333b9f37e51@mailslurp.com';
-    const password = 'HuskTheBest75_';
+const email = '299c0a41-190e-4533-891b-b333b9f37e51@mailslurp.com';
+const password = 'HuskTheBest75_';
 
+describe('verifying the login', function () {
     it('Verify the login page', function () {
         loginPage.visitMainPage();
 
@@ -13,17 +13,31 @@ describe('verifying the login', function () {
         loginPage.checkPasswordInput();
         loginPage.checkUsernameInput();
     });
-    it('Verify the user signed in', function () {
-        loginPage.visitLoginPage();
 
+    beforeEach(function () {
+        loginPage.visitLoginPage();
+    });
+
+    it('Verify the user signed in', function () {
         loginPage.signUp(email, password, 'loggedas');
 
         loginPage.checkSignOutLink();
         loginPage.clickOnSignOutLink();
     });
-    it('Verify the users page', function () {
-        Helpers.verifyingUserIsLogined(email, password);
+    it('Verify the user receive correct exception while entering wrong email or password on the sign up page', function () {
+        loginPage.signUp(Helpers.makeLorem(), Helpers.makeLorem(), 'flash_error');
 
+        loginPage.checkPasswordInput();
+        loginPage.checkPasswordInputIsEmpty();
+    });
+});
+
+describe('verifying the pages connected with login', function () {
+    beforeEach(function () {
+        Helpers.verifyingUserIsLogined(email, password);
+    });
+
+    it('Verify the users page', function () {
         loginPage.checkUserPageLink();
         loginPage.clickOnUserPageLink();
 
@@ -33,8 +47,6 @@ describe('verifying the login', function () {
         loginPage.clickOnSignOutLink();
     });
     it('Verify the "My page" page', function () {
-        Helpers.verifyingUserIsLogined(email, password);
-
         loginPage.checkMyPageLink();
         loginPage.clickOnMyPageLink();
 
@@ -43,12 +55,4 @@ describe('verifying the login', function () {
         loginPage.checkSignOutLink();
         loginPage.clickOnSignOutLink();
     });
-    it('Verify the user receive correct exception while entering wrong email or password on the sign up page', function () {
-        loginPage.visitLoginPage();
-
-        loginPage.signUp(Helpers.makeLorem(), Helpers.makeLorem(), 'flash_error');
-
-        loginPage.checkPasswordInput();
-        loginPage.checkPasswordInputIsEmpty();
-    })
 })

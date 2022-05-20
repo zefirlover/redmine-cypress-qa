@@ -10,11 +10,15 @@ describe('verifying the registration', function () {
         registerPage.checkLoginInput();
         registerPage.checkEmailInput();
     });
+
+    beforeEach(function () {
+        registerPage.visitRegisterPage();
+    })
+
     it('Verify the user registration', function () {
         let password = Helpers.makeLorem();
         let resultMessage = 'Account was successfully created.'
 
-        registerPage.visitRegisterPage();
         registerPage.registerNewUser(password, password, resultMessage);
     });
     it('Verify the user receive correct exception while entering wrong confirmation password on the register page', function () {
@@ -22,7 +26,6 @@ describe('verifying the registration', function () {
         let confirm_password = "HuskTheBest75";
         let resultMessage = "Password doesn't match confirmation"
         
-        registerPage.visitRegisterPage();
         registerPage.registerNewUser(password, confirm_password, resultMessage);
         registerPage.checkPasswordInputsAreEmpty();
     });
@@ -30,7 +33,6 @@ describe('verifying the registration', function () {
         let password = Helpers.makeLorem();
         let email = '299c0a41-190e-4533-891b-b333b9f37e51';
 
-        registerPage.visitRegisterPage();
         registerPage.fillData(email, password, password);
         registerPage.displayedElementById('errorExplanation');
         registerPage.checkPasswordInputsAreEmpty();
