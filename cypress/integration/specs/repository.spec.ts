@@ -1,6 +1,6 @@
 import repositoryPage from '../../pages/repository.page';
 
-describe.only('verify the repository functionality', function () {
+describe('verify the repository functionality', function () {
     it('Verify the repository page', function () {
         repositoryPage.visitMainPage();
 

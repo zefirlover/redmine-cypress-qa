@@ -20,9 +20,7 @@ describe('verifying the login', function () {
 
     it('Verify the user signed in', function () {
         loginPage.signUp(email, password, 'loggedas');
-
         loginPage.checkSignOutLink();
-        loginPage.clickOnSignOutLink();
     });
     it('Verify the user receive correct exception while entering wrong email or password on the sign up page', function () {
         loginPage.signUp(Helpers.makeLorem(), Helpers.makeLorem(), 'flash_error');
@@ -42,17 +40,13 @@ describe('verifying the pages connected with login', function () {
         loginPage.clickOnUserPageLink();
 
         loginPage.displayedElementByText('Mailslurp User');
-
         loginPage.checkSignOutLink();
-        loginPage.clickOnSignOutLink();
     });
     it('Verify the "My page" page', function () {
         loginPage.checkMyPageLink();
         loginPage.clickOnMyPageLink();
 
         loginPage.checkReportedIssuesLink();
-
         loginPage.checkSignOutLink();
-        loginPage.clickOnSignOutLink();
     });
 })

@@ -17,7 +17,6 @@ describe('verify the my account page functionality', function () {
 
     afterEach(function () {
         myAccountPage.checkSignOutLink();
-        myAccountPage.clickOnSignOutLink();
     })
 
     it('Verify the My account page', function () {
