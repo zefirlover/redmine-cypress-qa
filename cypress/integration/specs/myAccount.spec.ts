@@ -8,9 +8,6 @@ describe('verify the my account page functionality', function () {
     const newPassword = 'HuskTheBest75';
     const confirmPassword = 'Husk';
 
-    const userUpdateSuccessMsg = 'Account was successfully updated';
-    const firstNameCantBeBlankMsg = `First name can't be blank`;
-
     beforeEach(function () {
         Helpers.verifyingUserIsLogined(email, password);
     });
@@ -29,8 +26,15 @@ describe('verify the my account page functionality', function () {
     it(`Update the user's first name`, function () {
         myAccountPage.visitMyAccountPage();
 
-        myAccountPage.updateFirstName('Casual', userUpdateSuccessMsg);
-        myAccountPage.updateFirstName('Mailslurp', userUpdateSuccessMsg);
+        myAccountPage.updateFirstName('Casual', '#flash_notice');
+        myAccountPage.checkMyAccountLink();
+        myAccountPage.clickOnMyAccountLink();
+        myAccountPage.checkFirstNameInputHaveValue('Casual');
+
+        myAccountPage.updateFirstName('Mailslurp', '#flash_notice');
+        myAccountPage.checkMyAccountLink();
+        myAccountPage.clickOnMyAccountLink();
+        myAccountPage.checkFirstNameInputHaveValue('Mailslurp');
     });
     it('Verify the Change password page', function () {
         myAccountPage.visitMyAccountPage();
@@ -41,13 +45,13 @@ describe('verify the my account page functionality', function () {
         myAccountPage.checkNewPasswordConfirmInput();
     });
     it(`Update the user's password`, function () {
-        myAccountPage.changeUserPassword(password, newPassword, newPassword, '#flash_notice');
+        myAccountPage.changeUserPassword(password, newPassword, newPassword, '#flash_notice');        
         myAccountPage.changeUserPassword(newPassword, password, password, '#flash_notice');
     });
     it(`Verify the updated user's first name can not be blank`, function () {
         myAccountPage.visitMyAccountPage();
 
-        myAccountPage.updateFirstName(' ', firstNameCantBeBlankMsg);
+        myAccountPage.updateFirstName(' ', '#errorExplanation');
 
         myAccountPage.checkMyAccountLink();
         myAccountPage.clickOnMyAccountLink();
@@ -55,12 +59,12 @@ describe('verify the my account page functionality', function () {
         myAccountPage.checkLastNameInput();
         myAccountPage.checkEmailInput();
 
-        myAccountPage.expectFirstNameIsMailslurp();
+        myAccountPage.checkFirstNameInputHaveValue('Mailslurp');
     });
     it(`Verify the updated user's first name can not contain only spaces`, function () {
         myAccountPage.visitMyAccountPage();
 
-        myAccountPage.updateFirstName('          ', firstNameCantBeBlankMsg);
+        myAccountPage.updateFirstName('          ', '#errorExplanation');
 
         myAccountPage.checkMyAccountLink();
         myAccountPage.clickOnMyAccountLink();
@@ -68,7 +72,7 @@ describe('verify the my account page functionality', function () {
         myAccountPage.checkLastNameInput();
         myAccountPage.checkEmailInput();
 
-        myAccountPage.expectFirstNameIsMailslurp();
+        myAccountPage.checkFirstNameInputHaveValue('Mailslurp');
     });
     it('Verify the wrong old password denied the attempt to change the password', function () {
         myAccountPage.visitMyPasswordPage();

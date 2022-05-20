@@ -93,9 +93,14 @@ class MyAccount extends Login {
         this.saveButton.should('be.visible');
         this.saveButton.click();
 
-        this.displayedElementByText(messageText);
-        this.firstNameInput.should('have.value', name);
+        cy.get(messageText).should('be.visible');
+        this.checkFirstNameInputHaveValue(name);
     };
+
+    checkFirstNameInputHaveValue(value: string) {
+        this.firstNameInput.should('be.visible');
+        this.firstNameInput.should('have.value', value);
+    }
 
     changeUserPassword(oldPassword: string, newPassword: string, confirmPassword: string, message: string) {
         this.visitMyPasswordPage();
