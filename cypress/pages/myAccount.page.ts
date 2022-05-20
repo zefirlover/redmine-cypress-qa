@@ -93,7 +93,7 @@ class MyAccount extends Login {
         this.saveButton.should('be.visible');
         this.saveButton.click();
 
-        cy.get(messageText).should('be.visible');
+        this.displayedElementById(messageText);
         this.checkFirstNameInputHaveValue(name);
     };
 
@@ -119,11 +119,17 @@ class MyAccount extends Login {
 
         this.applyButton.click();
         this.checkUrl('https://www.redmine.org/my/password');
-        cy.get(message).should('be.visible');
+        this.displayedElementById(message);
     }
 
-    expectFirstNameIsMailslurp() {
-        this.firstNameInput.should('have.value', 'Mailslurp');
+    verifyTheNewPasswordWorks(login: string, password: string) {
+        this.checkSignOutLink();
+        this.clickOnSignOutLink();
+        this.signUp(login, password, 'loggedas');
+    }
+
+    verifyTheNewPasswordDontWork(login: string, password: string) {
+        this.signUp(login, password, 'flash_error');
     }
 }
 
