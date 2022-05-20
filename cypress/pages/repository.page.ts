@@ -68,7 +68,7 @@ class Repository extends Main {
     }
 
     insertDataInRevisionFilter(insertText: string) {
-        this.revisionInput.type(insertText).type('{enter}');
+        this.revisionInput.type(insertText).should('have.value', insertText).type('{enter}');
     }
 
     checkFilesNotContainsExpander() {

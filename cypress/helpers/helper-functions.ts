@@ -14,7 +14,7 @@ class Helpers {
 
     static verifyingUserIsLogined(userLogin: string, userPassword: string) {
         mainPage.visitMainPage();
-        loginPage.signUp(userLogin, userPassword, 'Logged in as');
+        loginPage.signUp(userLogin, userPassword, 'loggedas');
     }
 }
 

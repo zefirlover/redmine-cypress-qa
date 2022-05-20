@@ -155,6 +155,7 @@ class Issues extends Main {
     
     insertUpdatedData(dataString: string) {
         this.updatedInput.type(dataString);
+        this.updatedInput.should('have.value', dataString);
     }
 }
 

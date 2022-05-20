@@ -80,23 +80,32 @@ class Register extends Main {
     }
 
     fillData(inboxId: string, password: string, confirmPassword: string) {
+        let firstName = Helpers.makeLorem();
+        let lastName = Helpers.makeLorem();
+
         this.checkLoginInput();
         this.loginInput.type(inboxId);
+        this.loginInput.should('have.value', inboxId);
         
         this.checkEmailInput();
         this.passwordInput.type(password);
+        this.passwordInput.should('have.value', password);
 
         this.confirmPasswordInput.should('be.visible');
         this.confirmPasswordInput.type(confirmPassword);
+        this.confirmPasswordInput.should('have.value', confirmPassword);
 
         this.firstNameInput.should('be.visible');
-        this.firstNameInput.type(Helpers.makeLorem());
+        this.firstNameInput.type(firstName);
+        this.firstNameInput.should('have.value', firstName);
 
         this.lastNameInput.should('be.visible');
-        this.lastNameInput.type(Helpers.makeLorem());
+        this.lastNameInput.type(lastName);
+        this.lastNameInput.should('have.value', lastName);
 
         this.checkEmailInput();
         this.emailInput.type(`${inboxId}@mailslurp.com`);
+        this.emailInput.should('have.value', `${inboxId}@mailslurp.com`)
 
         this.submitButton.should('be.visible');
         this.submitButton.click();

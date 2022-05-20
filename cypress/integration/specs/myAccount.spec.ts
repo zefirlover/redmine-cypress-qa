@@ -9,10 +9,7 @@ describe('verify the my account page functionality', function () {
     const confirmPassword = 'Husk';
 
     const userUpdateSuccessMsg = 'Account was successfully updated';
-    const passwordUpdateSuccessMsg = 'Password was successfully updated';
     const firstNameCantBeBlankMsg = `First name can't be blank`;
-    const wrongPasswordMsg = 'Wrong password';
-    const wrongConfirmationMsg = `Password doesn't match confirmation`;
     
     it('Verify the My account page', function () {
         Helpers.verifyingUserIsLogined(email, password);
@@ -53,8 +50,8 @@ describe('verify the my account page functionality', function () {
     it(`Update the user's password`, function () {
         Helpers.verifyingUserIsLogined(email, password);
 
-        myAccountPage.changeUserPassword(password, newPassword, newPassword, passwordUpdateSuccessMsg);
-        myAccountPage.changeUserPassword(newPassword, password, password, passwordUpdateSuccessMsg);
+        myAccountPage.changeUserPassword(password, newPassword, newPassword, '#flash_notice');
+        myAccountPage.changeUserPassword(newPassword, password, password, '#flash_notice');
 
         myAccountPage.checkSignOutReference();
         myAccountPage.clickOnSignOutReference();
@@ -100,8 +97,8 @@ describe('verify the my account page functionality', function () {
 
         myAccountPage.visitMyPasswordPage();
 
-        myAccountPage.changeUserPassword(wrongPassword, newPassword, newPassword, wrongPasswordMsg);
-        myAccountPage.changeUserPassword(newPassword, password, password, wrongPasswordMsg);
+        myAccountPage.changeUserPassword(wrongPassword, newPassword, newPassword, '#flash_error');
+        myAccountPage.changeUserPassword(newPassword, password, password, '#flash_error');
 
         myAccountPage.checkSignOutReference();
         myAccountPage.clickOnSignOutReference();
@@ -111,8 +108,8 @@ describe('verify the my account page functionality', function () {
 
         myAccountPage.visitMyPasswordPage();
 
-        myAccountPage.changeUserPassword(password, newPassword, confirmPassword, wrongConfirmationMsg);
-        myAccountPage.changeUserPassword(newPassword, password, password, wrongPasswordMsg);
+        myAccountPage.changeUserPassword(password, newPassword, confirmPassword, '#errorExplanation');
+        myAccountPage.changeUserPassword(newPassword, password, password, '#flash_error');
 
         myAccountPage.checkSignOutReference();
         myAccountPage.clickOnSignOutReference();

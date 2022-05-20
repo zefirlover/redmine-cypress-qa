@@ -70,8 +70,11 @@ export class Login extends Main {
 
         this.checkUsernameInput();
         this.usernameInput.type(username);
+        this.usernameInput.should('have.value', username);
+
         this.checkPasswordInput();
         this.passwordInput.type(password);
+        this.passwordInput.should('have.value', password);
 
         this.checkLoginButton()
         this.clickOnSignInButton();
