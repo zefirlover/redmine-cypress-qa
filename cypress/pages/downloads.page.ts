@@ -29,6 +29,22 @@ class Downloads extends Main {
         return cy.get('[href="https://github.com/"]');
     }
 
+    get turnkeyLink() {
+        return cy.get('[href="http://www.turnkeylinux.org/redmine"]');
+    }
+
+    get bitnamiLink() {
+        return cy.get('[href="https://bitnami.com/stack/redmine"]');
+    }
+
+    get turnkeyMainLink() {
+        return cy.get('[title="TurnKey GNU/Linux"]');
+    }
+
+    get bitnamiMainLink() {
+        return cy.get('[alt="Bitnami by VMware logo"]');
+    }
+
     visitDownloadsPage() {
         cy.visit('projects/redmine/wiki/Download');
     }
@@ -57,6 +73,14 @@ class Downloads extends Main {
         this.subversionRedirect.click();
     }
 
+    clickOnTurnkeyLink() {
+        this.turnkeyLink.click();
+    }
+
+    clickOnBitnamiLink() {
+        this.bitnamiLink.click();
+    }
+
     checkGithubRepoOpen() {
         cy.url().should('include', 'github.com/redmine/redmine');
     }
@@ -65,12 +89,36 @@ class Downloads extends Main {
         cy.url().should('include', 'svn.redmine.org/redmine/');
     }
 
+    checkTurnkeyPageOpen() {
+        cy.url().should('include', 'https://www.turnkeylinux.org/redmine');
+    }
+
+    checkBitnamiPageOpen() {
+        cy.url().should('include', 'https://bitnami.com/stack/redmine');
+    }
+
     checkSubversionMainLink() {
         this.subversionMainLink.should('be.visible');
     }
 
     checkGithubMainLink() {
         this.githubMainLink.should('be.visible');
+    }
+
+    checkTurnkeyLink() {
+        this.turnkeyLink.should('be.visible');
+    }
+
+    checkBitnamiLink() {
+        this.bitnamiLink.should('be.visible');
+    }
+
+    checkTurnkeyMainLink() {
+        this.turnkeyMainLink.should('be.visible');
+    }
+
+    checkBitnamiMainLink() {
+        this.bitnamiMainLink.should('be.visible');
     }
 
     checkGzFileDownloadLink() {

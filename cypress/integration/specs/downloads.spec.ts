@@ -45,4 +45,18 @@ describe.only('verify the downloads page functionality', function () {
         downloadsPage.checkSubversionRepoOpen();
         downloadsPage.checkSubversionMainLink();
     });
+    it('Verify the turnkey third-party link works', function () {
+        downloadsPage.visitDownloadsPage();
+        downloadsPage.checkTurnkeyLink();
+        downloadsPage.clickOnTurnkeyLink();
+        downloadsPage.checkTurnkeyPageOpen();
+        downloadsPage.checkTurnkeyMainLink();
+    });
+    it('Verify the bitnami third-party link works', function () {
+        downloadsPage.visitDownloadsPage();
+        downloadsPage.checkBitnamiLink();
+        downloadsPage.clickOnBitnamiLink();
+        downloadsPage.checkBitnamiPageOpen();
+        downloadsPage.checkBitnamiMainLink();
+    });
 })
