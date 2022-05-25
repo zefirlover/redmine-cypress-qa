@@ -4,5 +4,6 @@
         "MAILSLURP_API_KEY": "4e537106704dd48b2cbeac6430b2a8764340b4e0b8b1e385fa8fa3e3c2ef4508"
     },
     "defaultCommandTimeout": 30000,
-    "requestTimeout": 30000
+    "requestTimeout": 30000,
+    "chromeWebSecurity": false
 }
