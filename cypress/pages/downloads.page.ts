@@ -155,6 +155,18 @@ class Downloads extends Main {
         // open https://github.com/elaichenkov/cy-verify-downloads for more information
         cy.verifyDownload(name, { contains: true });
     }
+
+    clearDownloadsFolder() {
+        // https://gitter.im/cypress-io/cypress?at=5fb3db76b4283c208a6e55af
+        // go to Javier Sanchez Nov 17 2020 20:35 message
+        cy.exec('del /q cypress\\downloads\\*', { failOnNonZeroExit: false });
+    }
+
+    verifyFileDownload(nameContains: string, linkOrder: number) {
+        this.clickOnSpecificFileDownloadLink(nameContains, linkOrder);
+        this.verifyDownloadedFileContains(nameContains);
+        this.clearDownloadsFolder();
+    }
 }
 
 export default new Downloads();

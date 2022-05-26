@@ -1,6 +1,6 @@
 import downloadsPage from '../../pages/downloads.page'
 
-describe.only('verify the downloads page functionality', function () {
+describe('verify the downloads page functionality', function () {
     it('Verify the downloads page', function () {
         downloadsPage.visitMainPage();
         downloadsPage.checkDownloadTab();
@@ -59,4 +59,19 @@ describe.only('verify the downloads page functionality', function () {
         downloadsPage.checkBitnamiPageOpen();
         downloadsPage.checkBitnamiMainLink();
     });
+    it('Verify the third-party bundles download links are working properly', function () {
+        downloadsPage.visitDownloadsPage();
+        downloadsPage.checkGzFileDownloadLink();
+        downloadsPage.checkZipFileDownloadLink();
+        
+        downloadsPage.verifyFileDownload('.tar.gz', 2);
+        downloadsPage.verifyFileDownload('.tar.gz', 3);
+        downloadsPage.verifyFileDownload('.tar.gz', 4);
+        downloadsPage.verifyFileDownload('.tar.gz', 5);
+
+        downloadsPage.verifyFileDownload('.zip', 2);
+        downloadsPage.verifyFileDownload('.zip', 3);
+        downloadsPage.verifyFileDownload('.zip', 4);
+        downloadsPage.verifyFileDownload('.zip', 5);
+    })
 })
