@@ -1,6 +1,6 @@
 import wikiPage from "../../pages/wiki.page"
 
-describe.only('verify the wiki page functionality', function () {
+describe('verify the wiki page functionality', function () {
     it('Verify the wiki page', function () {
         wikiPage.visitMainPage();
         wikiPage.checkWikiTab();

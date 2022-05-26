@@ -45,6 +45,30 @@ class Downloads extends Main {
         return cy.get('[alt="Bitnami by VMware logo"]');
     }
 
+    get changelogLink() {
+        return cy.get('[href*="Changelog"]').eq(1);
+    }
+
+    get redmineInstallLink() {
+        return cy.get('[href="/projects/redmine/wiki/RedmineInstall"]').eq(1);
+    }
+
+    get redmineInstallHeader() {
+        return cy.get('a[name="Installing-Redmine"]');
+    }
+
+    get redmineUpgradeLink() {
+        return cy.get('[href="/projects/redmine/wiki/RedmineUpgrade"]');
+    }
+
+    get redmineUpgradeHeader() {
+        return cy.get('a[name="Upgrading"]');
+    }
+
+    get olderReleasesLink() {
+        return cy.get('a[href="/releases/"]');
+    }
+
     visitDownloadsPage() {
         cy.visit('projects/redmine/wiki/Download');
     }
@@ -79,6 +103,22 @@ class Downloads extends Main {
 
     clickOnBitnamiLink() {
         this.bitnamiLink.click();
+    }
+
+    clickOnChangelogLink() {
+        this.changelogLink.click();
+    }
+
+    clickOnRedmineInstallLink() {
+        this.redmineInstallLink.click();
+    }
+
+    clickOnRedmineUpgradeLink() {
+        this.redmineUpgradeLink.click();
+    }
+
+    clickOnOlderReleasesLink() {
+        this.olderReleasesLink.click();
     }
 
     checkGithubRepoOpen() {
@@ -129,13 +169,35 @@ class Downloads extends Main {
         this.downloadZipFileLinks.should('be.visible');
     }
 
+    checkChangelogLink() {
+        this.changelogLink.should('be.visible');
+    }
+
+    checkRedmineInstallLink() {
+        this.redmineInstallLink.should('be.visible');
+    }
+
+    checkRedmineInstallHeader() {
+        this.redmineInstallHeader.should('exist');
+    }
+
+    checkRedmineUpgradeLink() {
+        this.redmineUpgradeLink.should('be.visible');
+    }
+
+    checkRedmineUpgradeHeader() {
+        this.redmineUpgradeHeader.should('exist');
+    }
+
+    checkOlderReleasesLink() {
+        this.olderReleasesLink.should('be.visible');
+    }
+
     checkDownloadedFile(index: number) {
         // working method, deprecated by using https://github.com/elaichenkov/cy-verify-downloads
         this.downloadGzFileLinks.eq(index).invoke('text')
             .then(gzFileName => {
                 cy.log(gzFileName.toString());
-                //this.downloadGzFileLinks.eq(index).click();
-                //cy.wait(5000);
                 cy.readFile(`cypress\\Downloads\\${gzFileName}`).should('exist');
             });
     }

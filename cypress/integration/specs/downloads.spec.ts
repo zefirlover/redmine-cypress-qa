@@ -1,6 +1,10 @@
 import downloadsPage from '../../pages/downloads.page'
 
 describe('verify the downloads page functionality', function () {
+    afterEach(function () {
+        downloadsPage.clearDownloadsFolder();
+    });
+
     it('Verify the downloads page', function () {
         downloadsPage.visitMainPage();
         downloadsPage.checkDownloadTab();
@@ -73,5 +77,29 @@ describe('verify the downloads page functionality', function () {
         downloadsPage.verifyFileDownload('.zip', 3);
         downloadsPage.verifyFileDownload('.zip', 4);
         downloadsPage.verifyFileDownload('.zip', 5);
-    })
+    });
+    it('Verify the changelog page', function () {
+        downloadsPage.visitDownloadsPage();
+        downloadsPage.checkChangelogLink();
+        downloadsPage.clickOnChangelogLink();
+        downloadsPage.checkChangelogLink();
+    });
+    it('Verify the installation guide page opens from the downloads page', function () {
+        downloadsPage.visitDownloadsPage();
+        downloadsPage.checkRedmineInstallLink();
+        downloadsPage.clickOnRedmineInstallLink();
+        downloadsPage.checkRedmineInstallHeader();
+    });
+    it('Verify the RedmineUpgrade page opens from the downloads page', function () {
+        downloadsPage.visitDownloadsPage();
+        downloadsPage.checkRedmineUpgradeLink();
+        downloadsPage.clickOnRedmineUpgradeLink();
+        downloadsPage.checkRedmineUpgradeHeader();
+    });
+    it('Verify the older releases page', function () {
+        downloadsPage.visitDownloadsPage();
+        downloadsPage.checkOlderReleasesLink();
+        downloadsPage.clickOnOlderReleasesLink();
+        downloadsPage.checkZipFileDownloadLink();
+    });
 })
