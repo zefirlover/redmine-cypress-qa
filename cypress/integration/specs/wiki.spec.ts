@@ -7,10 +7,12 @@ describe('verify the wiki page functionality', function () {
         wikiPage.clickOnWikiTab();
         wikiPage.checkWikiPageDiv();
     });
+
     it('Verify the latest releases first link works', function () {
         wikiPage.visitWikiPage();
         wikiPage.verifyLatestReleasesLink(1);
     });
+    
     it('Verify the latest releases second link works', function () {
         wikiPage.visitWikiPage();
         wikiPage.verifyLatestReleasesLink(2);

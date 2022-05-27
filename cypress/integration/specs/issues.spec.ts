@@ -15,17 +15,17 @@ describe('verifying the issues functionality', function () {
     it('Verify the status filter work on the issues page', function () {
         issuesPage.checkStatusOption();
         issuesPage.selectStatusOptionClosed();
-
         issuesPage.checkApplyButton();
         issuesPage.clickOnApplyButton();
-
         issuesPage.checkDisplayedIssuesStatus();
         issuesPage.allDisplayedIssuesAreClosed();
     });
+
     it('Add the tracker filter on the issues page', function () {
         issuesPage.checkAddFilter();
         issuesPage.addFilter('tracker_id');
     });
+
     it('Verify the tracker filter work on the issues page', function () {
         issuesPage.checkAddFilter();
         issuesPage.addFilter('tracker_id');
@@ -42,6 +42,7 @@ describe('verifying the issues functionality', function () {
         issuesPage.checkDisplayedIssuesTracker();
         issuesPage.allDisplayedIssuesArePatch();
     });
+
     it('Verify tracker filter and status filter can both work on the issues page', function () {
         issuesPage.checkStatusOption();
         issuesPage.selectStatusOptionClosed();
@@ -61,6 +62,7 @@ describe('verifying the issues functionality', function () {
         issuesPage.checkDisplayedIssuesStatus();
         issuesPage.allDisplayedIssuesAreClosed();
     });
+
     it('Verify tracker filter with "is not" operator and status filter can both work on the issues page', function () {
         issuesPage.checkStatusOption();
         issuesPage.selectStatusOptionClosed();
@@ -83,6 +85,7 @@ describe('verifying the issues functionality', function () {
         issuesPage.checkDisplayedIssuesStatus();
         issuesPage.allDisplayedIssuesAreClosed();
     });
+
     it('Verify the status filter will not work when the checkbox will be unchecked on the issues page', function () {
         issuesPage.checkStatusOption();
         issuesPage.selectStatusOptionClosed();
@@ -96,6 +99,7 @@ describe('verifying the issues functionality', function () {
         issuesPage.checkDisplayedIssuesStatus();
         issuesPage.notAllDisplayedIssuesAreClosed();
     });
+    
     it('Verify the update time filter work on the issues page', function () {
         let data = '2022-05-01';
 

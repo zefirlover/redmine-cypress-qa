@@ -1,9 +1,6 @@
 import { Main } from './main.page';
 
 export class Login extends Main {
-    email = '299c0a41-190e-4533-891b-b333b9f37e51@mailslurp.com';
-    password = 'HuskTheBest75_';
-
     get signInLink() {
         return cy.get('a[href="/login"]');
     }

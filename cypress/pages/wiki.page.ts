@@ -43,7 +43,6 @@ class Wiki extends Main {
 
     verifyLatestReleasesLink(order: number) {
         this.latestReleasesLinks.eq(order).invoke('text').then(sometext => {
-            cy.log(sometext);
             this.clickOnLatestReleasesLink(order);
             this.displayedElementByText(sometext);
         })
