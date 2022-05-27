@@ -13,16 +13,8 @@ export class Main {
         cy.visit('');
     }
 
-    checkUserPageLink() {
-        this.userPageLink.should('be.visible');
-    }
-
     clickOnUserPageLink() {
         this.userPageLink.click();
-    }
-
-    checkMyPageLink() {
-        this.myPageLink.should('be.visible');
     }
 
     clickOnMyPageLink() {

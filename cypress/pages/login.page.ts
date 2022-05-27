@@ -29,32 +29,12 @@ export class Login extends Main {
         cy.visit('login');
     }
 
-    checkSignInLink() {
-        this.signInLink.should('be.visible');
-    }
-
     clickOnSignInLink() {
         this.signInLink.click();
     }
 
-    checkUsernameInput() {
-        this.usernameInput.should('be.visible');
-    }
-
-    checkPasswordInput() {
-        this.passwordInput.should('be.visible');
-    }
-
-    checkLoginButton() {
-        this.loginButton.should('be.visible');
-    }
-
     clickOnSignInButton() {
         this.loginButton.click();
-    }
-
-    checkSignOutLink() {
-        this.signOutLink.should('be.visible');
     }
 
     clickOnSignOutLink() {
@@ -62,28 +42,20 @@ export class Login extends Main {
     }
 
     signUp(username: string, password: string, checkTextId: string) {
-        this.checkSignInLink();
+        this.signInLink.should('be.visible');
         this.clickOnSignInLink();
 
-        this.checkUsernameInput();
+        this.usernameInput.should('be.visible');
         this.usernameInput.type(username);
         this.usernameInput.should('have.value', username);
 
-        this.checkPasswordInput();
+        this.passwordInput.should('be.visible');
         this.passwordInput.type(password);
         this.passwordInput.should('have.value', password);
 
-        this.checkLoginButton()
+        this.loginButton.should('be.visible');
         this.clickOnSignInButton();
         this.displayedElementById(checkTextId);
-    }
-
-    checkPasswordInputIsEmpty() {
-        this.passwordInput.should('have.value', '');
-    }
-
-    checkReportedIssuesLink() {
-        this.reportedIssuesLink.should('be.visible');
     }
 }
 

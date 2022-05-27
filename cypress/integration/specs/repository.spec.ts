@@ -3,10 +3,9 @@ import repositoryPage from '../../pages/repository.page';
 describe('verify the repository functionality', function () {
     it('Verify the repository page', function () {
         repositoryPage.visitMainPage();
-
-        repositoryPage.checkRepositoryTab();
+        repositoryPage.repositoryTab.should('be.visible');
         repositoryPage.clickOnRepositoryTab();
-        repositoryPage.checkEntriesTable();
+        repositoryPage.entriesTable.should('be.visible');
     });
 
     beforeEach(function () {
@@ -24,10 +23,10 @@ describe('verify the repository functionality', function () {
 
     it('Verify the revision repository filter work on a repository page', function () {
         let number = '21563';
-        repositoryPage.checkRevisionInput();
+        repositoryPage.revisionInput.should('be.visible');
         repositoryPage.insertDataInRevisionFilter(number);
         repositoryPage.displayedElementByText(` @ ${number} `);
-        repositoryPage.checkChangesetRevisionId();
+        repositoryPage.changesetRevisionId.should('be.visible');
         repositoryPage.expectFirstRevisionIdIs(number);
     })
 })

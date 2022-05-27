@@ -1,4 +1,3 @@
-import mainPage from '../pages/main.page';
 import loginPage from '../pages/login.page';
 
 class Helpers {
@@ -13,7 +12,7 @@ class Helpers {
     }
 
     static verifyingUserIsLogined(userLogin: string, userPassword: string) {
-        mainPage.visitMainPage();
+        loginPage.visitMainPage();
         loginPage.signUp(userLogin, userPassword, 'loggedas');
     }
 }

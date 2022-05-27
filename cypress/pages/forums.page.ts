@@ -33,30 +33,6 @@ class Forums extends Main {
         cy.visit('projects/redmine/boards');
     }
 
-    checkForumsTab() {
-        this.forumsTab.should('be.visible');
-    }
-
-    checkOpenDiscussionsLink() {
-        this.openDiscussionLink.should('be.visible');
-    }
-
-    checkHelpLink() {
-        this.helpLink.should('be.visible');
-    }
-
-    checkDevelopmentLink() {
-        this.developmentLink.should('be.visible');
-    }
-
-    checkPluginsLink() {
-        this.pluginsLink.should('be.visible');
-    }
-
-    checkJobOffersLink() {
-        this.jobOffersLink.should('be.visible');
-    }
-
     clickOnForumsTab() {
         this.forumsTab.click();
     }
@@ -79,10 +55,6 @@ class Forums extends Main {
 
     clickOnJobOffersLink() {
         this.jobOffersLink.click();
-    }
-
-    checkBoardsList() {
-        this.boardsList.should('be.visible');
     }
 }
 

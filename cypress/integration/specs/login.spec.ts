@@ -7,38 +7,38 @@ const password = 'HuskTheBest75_';
 describe('verifying the login', function () {
     it('Verify the login page', function () {
         loginPage.visitMainPage();
-        loginPage.checkSignInLink();
+        loginPage.signInLink.should('be.visible');
         loginPage.clickOnSignInLink();
-        loginPage.checkPasswordInput();
-        loginPage.checkUsernameInput();
+        loginPage.passwordInput.should('be.visible');
+        loginPage.usernameInput.should('be.visible');
     });
 
     it('Verify the user signed in', function () {
         loginPage.visitLoginPage();
         loginPage.signUp(email, password, 'loggedas');
-        loginPage.checkSignOutLink();
+        loginPage.signOutLink.should('be.visible');
     });
 
     it('Verify the user receive correct exception while entering wrong email or password on the sign up page', function () {
         loginPage.visitLoginPage();
         loginPage.signUp(Helpers.makeLorem(), Helpers.makeLorem(), 'flash_error');
-        loginPage.checkPasswordInput();
-        loginPage.checkPasswordInputIsEmpty();
+        loginPage.passwordInput.should('be.visible');
+        loginPage.passwordInput.should('have.value', '');
     });
 
     it('Verify the users page', function () {
         Helpers.verifyingUserIsLogined(email, password);
-        loginPage.checkUserPageLink();
+        loginPage.userPageLink.should('be.visible');
         loginPage.clickOnUserPageLink();
         loginPage.displayedElementByText('Mailslurp User');
-        loginPage.checkSignOutLink();
+        loginPage.signOutLink.should('be.visible');
     });
 
     it('Verify the "My page" page', function () {
         Helpers.verifyingUserIsLogined(email, password);
-        loginPage.checkMyPageLink();
+        loginPage.myPageLink.should('be.visible');
         loginPage.clickOnMyPageLink();
-        loginPage.checkReportedIssuesLink();
-        loginPage.checkSignOutLink();
+        loginPage.reportedIssuesLink.should('be.visible');
+        loginPage.signOutLink.should('be.visible');
     });
 });

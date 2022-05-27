@@ -3,42 +3,42 @@ import forumsPage from '../../pages/forums.page'
 describe('verify the forums page functionality', function () {
     it('Verify the forums page', function () {
         forumsPage.visitMainPage();
-        forumsPage.checkForumsTab();
+        forumsPage.forumsTab.should('be.visible');
         forumsPage.clickOnForumsTab();
-        forumsPage.checkBoardsList();
+        forumsPage.boardsList.should('be.visible');
     });
 
     it('Verify the Open discussion page', function () {
         forumsPage.visitForumsPage();
-        forumsPage.checkOpenDiscussionsLink();
+        forumsPage.openDiscussionLink.should('be.visible');
         forumsPage.clickOnOpenDiscussiosLink();
         forumsPage.displayedElementByText('Open discussion');
     });
 
     it('Verify the Help page', function () {
         forumsPage.visitForumsPage();
-        forumsPage.checkHelpLink();
+        forumsPage.helpLink.should('be.visible');
         forumsPage.clickOnHelpLink();
         forumsPage.displayedElementByText('Help');
     });
 
     it('Verify the Development page', function () {
         forumsPage.visitForumsPage();
-        forumsPage.checkDevelopmentLink();
+        forumsPage.developmentLink.should('be.visible');
         forumsPage.clickOnDevelopmentLink();
         forumsPage.displayedElementByText('Development');
     });
 
     it('Verify the Plugins page', function () {
         forumsPage.visitForumsPage();
-        forumsPage.checkPluginsLink();
+        forumsPage.pluginsLink.should('be.visible');
         forumsPage.clickOnPluginsLink();
         forumsPage.displayedElementByText('Plugins');
     });
 
     it('Verify the Job offers page', function () {
         forumsPage.visitForumsPage();
-        forumsPage.checkJobOffersLink();
+        forumsPage.jobOffersLink.should('be.visible');
         forumsPage.clickOnJobOffersLink();
         forumsPage.displayedElementByText('Job offers');
     });

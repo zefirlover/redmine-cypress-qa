@@ -53,16 +53,8 @@ class Issues extends Main {
         cy.visit('projects/redmine/issues');
     }
 
-    checkIssuesTab() {
-        this.issuesTab.should('be.visible');
-    }
-
     clickOnIssuesTab() {
         this.issuesTab.click();
-    }
-
-    checkApplyButton() {
-        this.applyButton.should('be.visible');
     }
 
     clickOnApplyButton() {
@@ -73,16 +65,8 @@ class Issues extends Main {
         this.issuesTable.should('be.visible');
     }
 
-    checkStatusOption() {
-        this.statusDropdownList.should('be.visible');
-    }
-
     selectStatusOptionClosed() {
         this.statusDropdownList.select('closed');
-    }
-
-    checkTrackerDropdownList() {
-        this.trackerDropdownList.should('be.visible');
     }
 
     selectTrackerOptionPatch() {
@@ -92,26 +76,14 @@ class Issues extends Main {
     notAllDisplayedIssuesAreClosed() {
         cy.get(`td[class="status"]:contains("Closed")`).should('not.have.length', 25);
     }
-
-    checkDisplayedIssuesStatus() {
-        this.issuesStatus.should('be.visible');
-    }
     
     allDisplayedIssuesAreClosed() {
         this.issuesStatus.should('have.length', 25);
         this.issuesStatus.contains('Closed');
     }
 
-    checkIssuesUpdateIsDisplayed() {
-        this.issuesStatus.should('be.visible');
-    }
-
     allDisplayedUpdateDateAreSame(dateString: string) {
         this.issuesUpdated.contains(dateString);
-    }
-
-    checkDisplayedIssuesTracker() {
-        this.issuesTracker.should('be.visible');
     }
 
     allDisplayedIssuesArePatch() {
@@ -124,33 +96,17 @@ class Issues extends Main {
         this.issuesTracker.should('not.contain', 'Patch');
     }
 
-    checkAddFilter() {
-        this.addFilterDropdownList.should('be.visible');
-    }
-
     addFilter(filterSelector: string) {
         this.addFilterDropdownList.select(filterSelector);
         cy.get(`[value="${filterSelector}"]`).should('be.visible');
-    }
-
-    checkStatusCheckbox() {
-        this.statusCheckbox.should('be.visible');
     }
 
     clickOnStatusCheckbox() {
         this.statusCheckbox.click();
     }
 
-    checkTrackerOperatorDropdownlist() {
-        this.trackerOperatorDropdownList.should('be.visible');
-    }
-
     selectTrackerOperatorOptionIsNot() {
         this.trackerOperatorDropdownList.select('is not');
-    }
-
-    checkUpdatedInput() {
-        this.updatedInput.should('be.visible');
     }
     
     insertUpdatedData(dataString: string) {

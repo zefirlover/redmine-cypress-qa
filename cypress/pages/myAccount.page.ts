@@ -49,40 +49,12 @@ class MyAccount extends Login {
         cy.visit('my/password');
     }
 
-    checkMyAccountLink() {
-        this.myAccountLink.should('be.visible');
-    }
-
     clickOnMyAccountLink() {
         this.myAccountLink.click();
     }
 
-    checkFirstNameInput() {
-        this.firstNameInput.should('be.visible');
-    }
-
-    checkLastNameInput() {
-        this.lastNameInput.should('be.visible');
-    }
-
-    checkEmailInput() {
-        this.emailInput.should('be.visible');
-    }
-
-    checkChangePasswordLink() {
-        this.changePasswordLink.should('be.visible');
-    }
-
     clickOnChangePasswordLink() {
         this.changePasswordLink.click();
-    }
-
-    checkPasswordInput() {
-        this.passwordInput.should('be.visible');
-    }
-
-    checkNewPasswordConfirmInput() {
-        this.newPasswordConfirmInput.should('be.visible');
     }
 
     updateFirstName(name: string, messageText: string) {
@@ -123,7 +95,7 @@ class MyAccount extends Login {
     }
 
     verifyTheNewPasswordWorks(login: string, password: string) {
-        this.checkSignOutLink();
+        this.signOutLink.should('be.visible');
         this.clickOnSignOutLink();
         this.signUp(login, password, 'loggedas');
     }

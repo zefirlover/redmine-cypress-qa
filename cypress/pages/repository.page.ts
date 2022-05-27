@@ -37,16 +37,8 @@ class Repository extends Main {
         cy.visit('projects/redmine/repository');
     }
 
-    checkRepositoryTab() {
-        this.repositoryTab.should('be.visible');
-    }
-
     clickOnRepositoryTab() {
         this.repositoryTab.click();
-    }
-
-    checkEntriesTable() {
-        this.entriesTable.should('be.visible');
     }
 
     clickOnTrunkFolderExpander() {
@@ -63,10 +55,6 @@ class Repository extends Main {
         this.githubFolder.should('be.visible');
     }
 
-    checkRevisionInput() {
-        this.revisionInput.should('be.visible');
-    }
-
     insertDataInRevisionFilter(insertText: string) {
         this.revisionInput.type(insertText).should('have.value', insertText).type('{enter}');
     }
@@ -79,10 +67,6 @@ class Repository extends Main {
                 throw new Error("Expander must not exist, but it does");
             }
         })
-    }
-
-    checkChangesetRevisionId() {
-        this.changesetRevisionId.should('be.visible');
     }
 
     expectFirstRevisionIdIs(revisionId: string) {

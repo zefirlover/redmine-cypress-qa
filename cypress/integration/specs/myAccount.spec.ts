@@ -13,35 +13,35 @@ describe('verify the my account page functionality', function () {
     });
 
     afterEach(function () {
-        myAccountPage.checkSignOutLink();
+        myAccountPage.signOutLink.should('be.visible');
     })
 
     it('Verify the My account page', function () {
-        myAccountPage.checkMyAccountLink();
+        myAccountPage.myAccountLink.should('be.visible');
         myAccountPage.clickOnMyAccountLink();
-        myAccountPage.checkFirstNameInput();
-        myAccountPage.checkLastNameInput();
-        myAccountPage.checkEmailInput();
+        myAccountPage.firstNameInput.should('be.visible');
+        myAccountPage.lastNameInput.should('be.visible');
+        myAccountPage.emailInput.should('be.visible');
     });
 
     it(`Update the user's first name`, function () {
         myAccountPage.visitMyAccountPage();
         myAccountPage.updateFirstName('Casual', 'flash_notice');
-        myAccountPage.checkMyAccountLink();
+        myAccountPage.myAccountLink.should('be.visible');
         myAccountPage.clickOnMyAccountLink();
         myAccountPage.checkFirstNameInputHaveValue('Casual');
         myAccountPage.updateFirstName('Mailslurp', 'flash_notice');
-        myAccountPage.checkMyAccountLink();
+        myAccountPage.myAccountLink.should('be.visible');
         myAccountPage.clickOnMyAccountLink();
         myAccountPage.checkFirstNameInputHaveValue('Mailslurp');
     });
 
     it('Verify the Change password page', function () {
         myAccountPage.visitMyAccountPage();
-        myAccountPage.checkChangePasswordLink();
+        myAccountPage.changePasswordLink.should('be.visible');
         myAccountPage.clickOnChangePasswordLink();
-        myAccountPage.checkPasswordInput();
-        myAccountPage.checkNewPasswordConfirmInput();
+        myAccountPage.passwordInput.should('be.visible');
+        myAccountPage.newPasswordConfirmInput.should('be.visible');
     });
 
     it(`Update the user's password`, function () {
@@ -54,22 +54,22 @@ describe('verify the my account page functionality', function () {
     it(`Verify the updated user's first name can not be blank`, function () {
         myAccountPage.visitMyAccountPage();
         myAccountPage.updateFirstName(' ', 'errorExplanation');
-        myAccountPage.checkMyAccountLink();
+        myAccountPage.myAccountLink.should('be.visible');
         myAccountPage.clickOnMyAccountLink();
-        myAccountPage.checkFirstNameInput();
-        myAccountPage.checkLastNameInput();
-        myAccountPage.checkEmailInput();
+        myAccountPage.firstNameInput.should('be.visible');
+        myAccountPage.lastNameInput.should('be.visible');
+        myAccountPage.emailInput.should('be.visible');
         myAccountPage.checkFirstNameInputHaveValue('Mailslurp');
     });
 
     it(`Verify the updated user's first name can not contain only spaces`, function () {
         myAccountPage.visitMyAccountPage();
         myAccountPage.updateFirstName('          ', 'errorExplanation');
-        myAccountPage.checkMyAccountLink();
+        myAccountPage.myAccountLink.should('be.visible');
         myAccountPage.clickOnMyAccountLink();
-        myAccountPage.checkFirstNameInput();
-        myAccountPage.checkLastNameInput();
-        myAccountPage.checkEmailInput();
+        myAccountPage.firstNameInput.should('be.visible');
+        myAccountPage.lastNameInput.should('be.visible');
+        myAccountPage.emailInput.should('be.visible');
         myAccountPage.checkFirstNameInputHaveValue('Mailslurp');
     });
 

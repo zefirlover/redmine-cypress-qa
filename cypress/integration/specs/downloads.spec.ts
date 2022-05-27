@@ -7,75 +7,75 @@ describe('verify the downloads page functionality', function () {
 
     it('Verify the downloads page', function () {
         downloadsPage.visitMainPage();
-        downloadsPage.checkDownloadTab();
+        downloadsPage.downloadTab.should('be.visible');
         downloadsPage.clickOnDownloadTab();
-        downloadsPage.checkGzFileDownloadLink();
+        downloadsPage.downloadGzFileLinks.should('be.visible');
     });
 
     it('Verify the first download link on the Downloads page', function () {
         downloadsPage.visitDownloadsPage();
-        downloadsPage.checkGzFileDownloadLink();
+        downloadsPage.downloadGzFileLinks.should('be.visible');
         downloadsPage.clickOnSpecificFileDownloadLink('.tar.gz', 0);
         downloadsPage.verifyDownloadedFileContains('.tar.gz');
     });
 
     it('Verify the second download link on the Downloads page', function () {
         downloadsPage.visitDownloadsPage();
-        downloadsPage.checkZipFileDownloadLink();
+        downloadsPage.downloadZipFileLinks.should('be.visible');
         downloadsPage.clickOnSpecificFileDownloadLink('.zip', 0);
         downloadsPage.verifyDownloadedFileContains('.zip');
     });
 
     it('Verify the third download link on the Downloads page', function () {
         downloadsPage.visitDownloadsPage();
-        downloadsPage.checkGzFileDownloadLink();
+        downloadsPage.downloadGzFileLinks.should('be.visible');
         downloadsPage.clickOnSpecificFileDownloadLink('.tar.gz', 1);
         downloadsPage.verifyDownloadedFileContains('.tar.gz');
     });
 
     it('Verify the forth download link on the Downloads page', function () {
         downloadsPage.visitDownloadsPage();
-        downloadsPage.checkZipFileDownloadLink();
+        downloadsPage.downloadZipFileLinks.should('be.visible');
         downloadsPage.clickOnSpecificFileDownloadLink('.zip', 1);
         downloadsPage.verifyDownloadedFileContains('.zip');
     });
 
     it('Verify the github link works', function () {
         downloadsPage.visitDownloadsPage();
-        downloadsPage.checkGithubLink();
+        downloadsPage.githubRedirect.should('be.visible');
         downloadsPage.clickOnGithubLink();
         downloadsPage.checkGithubRepoOpen();
-        downloadsPage.checkGithubMainLink();
+        downloadsPage.githubMainLink.should('be.visible');
     });
 
     it('Verify the subversion link works', function () {
         downloadsPage.visitDownloadsPage();
-        downloadsPage.checkSubversionLink();
+        downloadsPage.subversionRedirect.should('be.visible');
         downloadsPage.clickOnSubversionLink();
         downloadsPage.checkSubversionRepoOpen();
-        downloadsPage.checkSubversionMainLink();
+        downloadsPage.subversionMainLink.should('be.visible');
     });
 
     it('Verify the turnkey third-party link works', function () {
         downloadsPage.visitDownloadsPage();
-        downloadsPage.checkTurnkeyLink();
+        downloadsPage.turnkeyLink.should('be.visible');
         downloadsPage.clickOnTurnkeyLink();
         downloadsPage.checkTurnkeyPageOpen();
-        downloadsPage.checkTurnkeyMainLink();
+        downloadsPage.turnkeyMainLink.should('be.visible');
     });
 
     it('Verify the bitnami third-party link works', function () {
         downloadsPage.visitDownloadsPage();
-        downloadsPage.checkBitnamiLink();
+        downloadsPage.bitnamiLink.should('be.visible');
         downloadsPage.clickOnBitnamiLink();
         downloadsPage.checkBitnamiPageOpen();
-        downloadsPage.checkBitnamiMainLink();
+        downloadsPage.bitnamiMainLink.should('be.visible');
     });
 
     it('Verify the third-party bundles download links are working properly', function () {
         downloadsPage.visitDownloadsPage();
-        downloadsPage.checkGzFileDownloadLink();
-        downloadsPage.checkZipFileDownloadLink();
+        downloadsPage.downloadGzFileLinks.should('be.visible');
+        downloadsPage.downloadZipFileLinks.should('be.visible');
         downloadsPage.verifyFileDownload('.tar.gz', 2);
         downloadsPage.verifyFileDownload('.tar.gz', 3);
         downloadsPage.verifyFileDownload('.tar.gz', 4);
@@ -88,29 +88,29 @@ describe('verify the downloads page functionality', function () {
 
     it('Verify the changelog page', function () {
         downloadsPage.visitDownloadsPage();
-        downloadsPage.checkChangelogLink();
+        downloadsPage.changelogLink.should('be.visible');
         downloadsPage.clickOnChangelogLink();
-        downloadsPage.checkChangelogLink();
+        downloadsPage.changelogLink.should('be.visible');
     });
 
     it('Verify the installation guide page opens from the downloads page', function () {
         downloadsPage.visitDownloadsPage();
-        downloadsPage.checkRedmineInstallLink();
+        downloadsPage.redmineInstallLink.should('be.visible');
         downloadsPage.clickOnRedmineInstallLink();
-        downloadsPage.checkRedmineInstallHeader();
+        downloadsPage.redmineInstallHeader.should('exist');
     });
 
     it('Verify the RedmineUpgrade page opens from the downloads page', function () {
         downloadsPage.visitDownloadsPage();
-        downloadsPage.checkRedmineUpgradeLink();
+        downloadsPage.redmineUpgradeLink.should('be.visible');
         downloadsPage.clickOnRedmineUpgradeLink();
-        downloadsPage.checkRedmineUpgradeHeader();
+        downloadsPage.redmineUpgradeHeader.should('exist');
     });
 
     it('Verify the older releases page', function () {
         downloadsPage.visitDownloadsPage();
-        downloadsPage.checkOlderReleasesLink();
+        downloadsPage.olderReleasesLink.should('be.visible');
         downloadsPage.clickOnOlderReleasesLink();
-        downloadsPage.checkZipFileDownloadLink();
+        downloadsPage.downloadZipFileLinks.should('be.visible');
     });
 })

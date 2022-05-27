@@ -3,9 +3,9 @@ import issuesPage from '../../pages/issues.page';
 describe('verifying the issues functionality', function () {
     it('Verify the issues page', function () {
         issuesPage.visitMainPage();
-        issuesPage.checkIssuesTab()
+        issuesPage.issuesTab.should('be.visible');
         issuesPage.clickOnIssuesTab();
-        issuesPage.issuesTableIsDisplayed();
+        issuesPage.issuesTable.should('be.visible');
     });
 
     beforeEach(function () {
@@ -13,106 +13,106 @@ describe('verifying the issues functionality', function () {
     });
 
     it('Verify the status filter work on the issues page', function () {
-        issuesPage.checkStatusOption();
+        issuesPage.statusDropdownList.should('be.visible');
         issuesPage.selectStatusOptionClosed();
-        issuesPage.checkApplyButton();
+        issuesPage.applyButton.should('be.visible');
         issuesPage.clickOnApplyButton();
-        issuesPage.checkDisplayedIssuesStatus();
+        issuesPage.issuesStatus.should('be.visible');
         issuesPage.allDisplayedIssuesAreClosed();
     });
 
     it('Add the tracker filter on the issues page', function () {
-        issuesPage.checkAddFilter();
+        issuesPage.addFilterDropdownList.should('be.visible');
         issuesPage.addFilter('tracker_id');
     });
 
     it('Verify the tracker filter work on the issues page', function () {
-        issuesPage.checkAddFilter();
+        issuesPage.addFilterDropdownList.should('be.visible');
         issuesPage.addFilter('tracker_id');
 
-        issuesPage.checkTrackerDropdownList();
+        issuesPage.trackerDropdownList.should('be.visible');
         issuesPage.selectTrackerOptionPatch();
 
-        issuesPage.checkStatusCheckbox()
+        issuesPage.statusCheckbox.should('be.visible');
         issuesPage.clickOnStatusCheckbox();
 
-        issuesPage.checkApplyButton();
+        issuesPage.applyButton.should('be.visible');
         issuesPage.clickOnApplyButton();
 
-        issuesPage.checkDisplayedIssuesTracker();
+        issuesPage.issuesTracker.should('be.visible');
         issuesPage.allDisplayedIssuesArePatch();
     });
 
     it('Verify tracker filter and status filter can both work on the issues page', function () {
-        issuesPage.checkStatusOption();
+        issuesPage.statusDropdownList.should('be.visible');
         issuesPage.selectStatusOptionClosed();
 
-        issuesPage.checkAddFilter();
+        issuesPage.addFilterDropdownList.should('be.visible');
         issuesPage.addFilter('tracker_id');
 
-        issuesPage.checkTrackerDropdownList();
+        issuesPage.trackerDropdownList.should('be.visible');
         issuesPage.selectTrackerOptionPatch();
 
-        issuesPage.checkApplyButton();
+        issuesPage.applyButton.should('be.visible');
         issuesPage.clickOnApplyButton();
 
-        issuesPage.checkDisplayedIssuesTracker();
+        issuesPage.issuesTracker.should('be.visible');
         issuesPage.allDisplayedIssuesArePatch();
 
-        issuesPage.checkDisplayedIssuesStatus();
+        issuesPage.issuesStatus.should('be.visible');
         issuesPage.allDisplayedIssuesAreClosed();
     });
 
     it('Verify tracker filter with "is not" operator and status filter can both work on the issues page', function () {
-        issuesPage.checkStatusOption();
+        issuesPage.statusDropdownList.should('be.visible');
         issuesPage.selectStatusOptionClosed();
 
-        issuesPage.checkAddFilter();
+        issuesPage.addFilterDropdownList.should('be.visible');
         issuesPage.addFilter('tracker_id');
 
-        issuesPage.checkTrackerDropdownList();
+        issuesPage.trackerDropdownList.should('be.visible');
         issuesPage.selectTrackerOptionPatch();
 
-        issuesPage.checkTrackerOperatorDropdownlist();
+        issuesPage.trackerOperatorDropdownList.should('be.visible');
         issuesPage.selectTrackerOperatorOptionIsNot();
 
-        issuesPage.checkApplyButton();
+        issuesPage.applyButton.should('be.visible');
         issuesPage.clickOnApplyButton();
 
-        issuesPage.checkDisplayedIssuesTracker();
+        issuesPage.issuesTracker.should('be.visible');
         issuesPage.allDisplayedIssuesAreNotPatch();
 
-        issuesPage.checkDisplayedIssuesStatus();
+        issuesPage.issuesStatus.should('be.visible');
         issuesPage.allDisplayedIssuesAreClosed();
     });
 
     it('Verify the status filter will not work when the checkbox will be unchecked on the issues page', function () {
-        issuesPage.checkStatusOption();
+        issuesPage.statusDropdownList.should('be.visible');
         issuesPage.selectStatusOptionClosed();
 
-        issuesPage.checkStatusCheckbox();
+        issuesPage.statusCheckbox.should('be.visible');;
         issuesPage.clickOnStatusCheckbox();
 
-        issuesPage.checkApplyButton();
+        issuesPage.applyButton.should('be.visible');
         issuesPage.clickOnApplyButton();
 
-        issuesPage.checkDisplayedIssuesStatus();
+        issuesPage.issuesStatus.should('be.visible');
         issuesPage.notAllDisplayedIssuesAreClosed();
     });
     
     it('Verify the update time filter work on the issues page', function () {
         let data = '2022-05-01';
 
-        issuesPage.checkAddFilter();
+        issuesPage.addFilterDropdownList.should('be.visible');
         issuesPage.addFilter('updated_on');
 
-        issuesPage.checkUpdatedInput();
+        issuesPage.updatedInput.should('be.visible');
         issuesPage.insertUpdatedData(data);
 
-        issuesPage.checkApplyButton();
+        issuesPage.applyButton.should('be.visible');
         issuesPage.clickOnApplyButton();
 
-        issuesPage.checkIssuesUpdateIsDisplayed();
+        issuesPage.issuesStatus.should('be.visible');
         issuesPage.allDisplayedUpdateDateAreSame(data);
-    })
+    });
 })

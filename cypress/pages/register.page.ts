@@ -39,27 +39,8 @@ class Register extends Main {
         cy.visit('account/register');
     }
 
-    checkRegisterLink() {
-        this.registerLink.should('be.visible');
-    }
-
     clickOnRegisterLink() {
         this.registerLink.click();
-    }
-
-    checkLoginInput() {
-        this.loginInput.should('be.visible');
-    }
-
-    checkEmailInput() {
-        this.emailInput.should('be.visible');
-    }
-
-    checkPasswordInputsAreEmpty() {
-        this.passwordInput.should('be.visible');
-        this.confirmPasswordInput.should('be.visible');
-        this.passwordInput.should('have.value', '');
-        this.confirmPasswordInput.should('have.value', '');
     }
 
     receiveEmail(inboxId: String) {
@@ -83,11 +64,11 @@ class Register extends Main {
         let firstName = Helpers.makeLorem();
         let lastName = Helpers.makeLorem();
 
-        this.checkLoginInput();
+        this.loginInput.should('be.visible');
         this.loginInput.type(inboxId);
         this.loginInput.should('have.value', inboxId);
         
-        this.checkEmailInput();
+        this.emailInput.should('be.visible');
         this.passwordInput.type(password);
         this.passwordInput.should('have.value', password);
 
@@ -103,7 +84,7 @@ class Register extends Main {
         this.lastNameInput.type(lastName);
         this.lastNameInput.should('have.value', lastName);
 
-        this.checkEmailInput();
+        this.emailInput.should('be.visible');
         this.emailInput.type(`${inboxId}@mailslurp.com`);
         this.emailInput.should('have.value', `${inboxId}@mailslurp.com`)
 

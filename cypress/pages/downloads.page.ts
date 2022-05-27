@@ -73,20 +73,8 @@ class Downloads extends Main {
         cy.visit('projects/redmine/wiki/Download');
     }
 
-    checkDownloadTab() {
-        this.downloadTab.should('be.visible');
-    }
-
     clickOnDownloadTab() {
         this.downloadTab.click();
-    }
-
-    checkGithubLink() {
-        this.githubRedirect.should('be.visible');
-    }
-
-    checkSubversionLink() {
-        this.subversionRedirect.should('be.visible');
     }
 
     clickOnGithubLink() {
@@ -135,62 +123,6 @@ class Downloads extends Main {
 
     checkBitnamiPageOpen() {
         cy.url().should('include', 'https://bitnami.com/stack/redmine');
-    }
-
-    checkSubversionMainLink() {
-        this.subversionMainLink.should('be.visible');
-    }
-
-    checkGithubMainLink() {
-        this.githubMainLink.should('be.visible');
-    }
-
-    checkTurnkeyLink() {
-        this.turnkeyLink.should('be.visible');
-    }
-
-    checkBitnamiLink() {
-        this.bitnamiLink.should('be.visible');
-    }
-
-    checkTurnkeyMainLink() {
-        this.turnkeyMainLink.should('be.visible');
-    }
-
-    checkBitnamiMainLink() {
-        this.bitnamiMainLink.should('be.visible');
-    }
-
-    checkGzFileDownloadLink() {
-        this.downloadGzFileLinks.should('be.visible');
-    }
-
-    checkZipFileDownloadLink() {
-        this.downloadZipFileLinks.should('be.visible');
-    }
-
-    checkChangelogLink() {
-        this.changelogLink.should('be.visible');
-    }
-
-    checkRedmineInstallLink() {
-        this.redmineInstallLink.should('be.visible');
-    }
-
-    checkRedmineInstallHeader() {
-        this.redmineInstallHeader.should('exist');
-    }
-
-    checkRedmineUpgradeLink() {
-        this.redmineUpgradeLink.should('be.visible');
-    }
-
-    checkRedmineUpgradeHeader() {
-        this.redmineUpgradeHeader.should('exist');
-    }
-
-    checkOlderReleasesLink() {
-        this.olderReleasesLink.should('be.visible');
     }
 
     checkDownloadedFile(index: number) {
