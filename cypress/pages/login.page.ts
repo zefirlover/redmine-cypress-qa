@@ -1,6 +1,6 @@
 import { Main } from './main.page';
 
-export class Login extends Main {
+class Login extends Main {
     get signInLink() {
         return cy.get('a[href="/login"]');
     }

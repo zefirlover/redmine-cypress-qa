@@ -1,4 +1,5 @@
 import myAccountPage from '../../pages/myAccount.page';
+import loginPage from '../../pages/login.page';
 import Helpers from '../../helpers/helper-functions';
 
 describe('verify the my account page functionality', function () {
@@ -13,7 +14,7 @@ describe('verify the my account page functionality', function () {
     });
 
     afterEach(function () {
-        myAccountPage.signOutLink.should('be.visible');
+        loginPage.signOutLink.should('be.visible');
     })
 
     it('Verify the My account page', function () {

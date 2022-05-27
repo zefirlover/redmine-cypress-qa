@@ -1,6 +1,7 @@
-import { Login } from "./login.page";
+import { Main } from './main.page';
+import loginPage from './login.page';
 
-class MyAccount extends Login {
+class MyAccount extends Main {
     get myAccountLink() {
         return cy.get('a[href="/my/account"]');
     }
@@ -95,13 +96,13 @@ class MyAccount extends Login {
     }
 
     verifyTheNewPasswordWorks(login: string, password: string) {
-        this.signOutLink.should('be.visible');
-        this.clickOnSignOutLink();
-        this.signUp(login, password, 'loggedas');
+        loginPage.signOutLink.should('be.visible');
+        loginPage.clickOnSignOutLink();
+        loginPage.signUp(login, password, 'loggedas');
     }
 
     verifyTheNewPasswordDontWork(login: string, password: string) {
-        this.signUp(login, password, 'flash_error');
+        loginPage.signUp(login, password, 'flash_error');
     }
 }
 
