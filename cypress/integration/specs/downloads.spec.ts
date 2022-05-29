@@ -15,28 +15,28 @@ describe('verify the downloads page functionality', function () {
     it('Verify the first download link on the Downloads page', function () {
         downloadsPage.visitDownloadsPage();
         downloadsPage.downloadGzFileLinks.should('be.visible');
-        downloadsPage.clickOnSpecificFileDownloadLink('.tar.gz', 0);
+        downloadsPage.clickOnFirstTarGzFileDownloadLink();
         downloadsPage.verifyDownloadedFileContains('.tar.gz');
     });
 
     it('Verify the second download link on the Downloads page', function () {
         downloadsPage.visitDownloadsPage();
         downloadsPage.downloadZipFileLinks.should('be.visible');
-        downloadsPage.clickOnSpecificFileDownloadLink('.zip', 0);
+        downloadsPage.clickOnFirstZipFileDownloadLink();
         downloadsPage.verifyDownloadedFileContains('.zip');
     });
 
     it('Verify the third download link on the Downloads page', function () {
         downloadsPage.visitDownloadsPage();
         downloadsPage.downloadGzFileLinks.should('be.visible');
-        downloadsPage.clickOnSpecificFileDownloadLink('.tar.gz', 1);
+        downloadsPage.clickOnSecondTarGzFileDownloadLink();
         downloadsPage.verifyDownloadedFileContains('.tar.gz');
     });
 
     it('Verify the forth download link on the Downloads page', function () {
         downloadsPage.visitDownloadsPage();
         downloadsPage.downloadZipFileLinks.should('be.visible');
-        downloadsPage.clickOnSpecificFileDownloadLink('.zip', 1);
+        downloadsPage.clickOnSecondZipFileDownloadLink();
         downloadsPage.verifyDownloadedFileContains('.zip');
     });
 
@@ -76,14 +76,14 @@ describe('verify the downloads page functionality', function () {
         downloadsPage.visitDownloadsPage();
         downloadsPage.downloadGzFileLinks.should('be.visible');
         downloadsPage.downloadZipFileLinks.should('be.visible');
-        downloadsPage.verifyFileDownload('.tar.gz', 2);
-        downloadsPage.verifyFileDownload('.tar.gz', 3);
-        downloadsPage.verifyFileDownload('.tar.gz', 4);
-        downloadsPage.verifyFileDownload('.tar.gz', 5);
-        downloadsPage.verifyFileDownload('.zip', 2);
-        downloadsPage.verifyFileDownload('.zip', 3);
-        downloadsPage.verifyFileDownload('.zip', 4);
-        downloadsPage.verifyFileDownload('.zip', 5);
+        downloadsPage.verifyFirstTarGzBundleIsDownloaded();
+        downloadsPage.verifySecondTarGzBundleIsDownloaded();
+        downloadsPage.verifyThirdTarGzBundleIsDownloaded();
+        downloadsPage.verifyFourthTarGzBundleIsDownloaded();
+        downloadsPage.verifyFirstZipBundleIsDownloaded();
+        downloadsPage.verifySecondZipBundleIsDownloaded();
+        downloadsPage.verifyThirdZipBundleIsDownloaded();
+        downloadsPage.verifyFourthZipBundleIsDownloaded();
     });
 
     it('Verify the changelog page', function () {

@@ -144,6 +144,22 @@ class Downloads extends Main {
           })
     }
 
+    clickOnFirstTarGzFileDownloadLink() {
+        this.clickOnSpecificFileDownloadLink('.tar.gz', 0);
+    }
+
+    clickOnFirstZipFileDownloadLink() {
+        this.clickOnSpecificFileDownloadLink('.zip', 0);
+    }
+
+    clickOnSecondTarGzFileDownloadLink() {
+        this.clickOnSpecificFileDownloadLink('.tar.gz', 1);
+    }
+
+    clickOnSecondZipFileDownloadLink() {
+        this.clickOnSpecificFileDownloadLink('.zip', 1);
+    }
+
     verifyDownloadedFileContains(name: string) {
         // verifyDownload is not pure cypress command.
         // open https://github.com/elaichenkov/cy-verify-downloads for more information
@@ -160,6 +176,40 @@ class Downloads extends Main {
         this.clickOnSpecificFileDownloadLink(nameContains, linkOrder);
         this.verifyDownloadedFileContains(nameContains);
         this.clearDownloadsFolder();
+    }
+
+    // third-party Redmine bundles download verifiers
+
+    verifyFirstTarGzBundleIsDownloaded() {
+        this.verifyFileDownload('.tar.gz', 2);
+    }
+
+    verifySecondTarGzBundleIsDownloaded() {
+        this.verifyFileDownload('.tar.gz', 3);
+    }
+
+    verifyThirdTarGzBundleIsDownloaded() {
+        this.verifyFileDownload('.tar.gz', 4);
+    }
+
+    verifyFourthTarGzBundleIsDownloaded() {
+        this.verifyFileDownload('.tar.gz', 5);
+    }
+
+    verifyFirstZipBundleIsDownloaded() {
+        this.verifyFileDownload('.zip', 2);
+    }
+
+    verifySecondZipBundleIsDownloaded() {
+        this.verifyFileDownload('.zip', 3);
+    }
+
+    verifyThirdZipBundleIsDownloaded() {
+        this.verifyFileDownload('.zip', 4);
+    }
+
+    verifyFourthZipBundleIsDownloaded() {
+        this.verifyFileDownload('.zip', 5);
     }
 }
 
