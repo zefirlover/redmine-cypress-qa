@@ -43,11 +43,11 @@ class MyAccount extends Main {
     }
 
     visitMyAccountPage() {
-        cy.visit('my/account');
+        cy.visit(Cypress.env('myAccountPage'));
     }
 
     visitMyPasswordPage() {
-        cy.visit('my/password');
+        cy.visit(Cypress.env('myPasswordPage'));
     }
 
     clickOnMyAccountLink() {

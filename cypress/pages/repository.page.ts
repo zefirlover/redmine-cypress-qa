@@ -34,7 +34,7 @@ class Repository extends Main {
     }
 
     visitRepositoryPage() {
-        cy.visit('projects/redmine/repository');
+        cy.visit(Cypress.env('repositoryPage'));
     }
 
     clickOnRepositoryTab() {

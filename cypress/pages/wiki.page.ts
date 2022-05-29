@@ -10,7 +10,7 @@ class Wiki extends Main {
     }
 
     visitWikiPage() {
-        cy.visit('/projects/redmine/wiki');
+        cy.visit(Cypress.env('wikiPage'));
     }
 
     clickOnWikiTab() {

@@ -30,7 +30,7 @@ class Forums extends Main {
     }
 
     visitForumsPage() {
-        cy.visit('projects/redmine/boards');
+        cy.visit(Cypress.env('forumsPage'));
     }
 
     clickOnForumsTab() {

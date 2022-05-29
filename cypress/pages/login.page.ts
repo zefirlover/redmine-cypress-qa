@@ -26,7 +26,7 @@ class Login extends Main {
     }
 
     visitLoginPage() {
-        cy.visit('login');
+        cy.visit(Cypress.env('loginPage'));
     }
 
     clickOnSignInLink() {

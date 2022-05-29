@@ -50,7 +50,7 @@ class Issues extends Main {
     }
 
     visitIssuesPage() {
-        cy.visit('projects/redmine/issues');
+        cy.visit(Cypress.env('issuesPage'));
     }
 
     clickOnIssuesTab() {

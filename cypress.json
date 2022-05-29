@@ -1,7 +1,16 @@
 {
     "baseUrl": "https://www.redmine.org/",
     "env": {
-        "MAILSLURP_API_KEY": "4e537106704dd48b2cbeac6430b2a8764340b4e0b8b1e385fa8fa3e3c2ef4508"
+        "MAILSLURP_API_KEY": "4e537106704dd48b2cbeac6430b2a8764340b4e0b8b1e385fa8fa3e3c2ef4508",
+        "downloadsPage": "projects/redmine/wiki/Download",
+        "forumsPage": "projects/redmine/boards",
+        "issuesPage": "projects/redmine/issues",
+        "loginPage": "login",
+        "myAccountPage": "my/account",
+        "myPasswordPage": "my/password",
+        "registerPage": "account/register",
+        "repositoryPage": "projects/redmine/repository",
+        "wikiPage": "projects/redmine/wiki"
     },
     "defaultCommandTimeout": 30000,
     "requestTimeout": 30000,

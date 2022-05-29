@@ -70,7 +70,7 @@ class Downloads extends Main {
     }
 
     visitDownloadsPage() {
-        cy.visit('projects/redmine/wiki/Download');
+        cy.visit(Cypress.env('downloadsPage'));
     }
 
     clickOnDownloadTab() {

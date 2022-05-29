@@ -36,7 +36,7 @@ class Register extends Main {
     }
 
     visitRegisterPage() {
-        cy.visit('account/register');
+        cy.visit(Cypress.env('registerPage'));
     }
 
     clickOnRegisterLink() {
