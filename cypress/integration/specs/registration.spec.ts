@@ -2,6 +2,13 @@ import registerPage from '../../pages/register.page';
 import Helpers from '../../helpers/helper-functions';
 
 describe('verifying the registration', function () {
+    const randomPassword = Helpers.makeLorem();
+    const accountWasCreatedMsg = 'Account was successfully created.';
+    const existedEmailId = '7e6e7f17-83d7-4f2c-aed9-6d3d0fbd4852';
+    const password = "HuskTheBest75_";
+    const confirmPassword = "HuskTheBest75";
+    const passwordDoesntMatchMsg = "Password doesn't match confirmation";
+
     it('Verify the registration page', function () {
         registerPage.visitMainPage();
         registerPage.registerLink.should('be.visible');
@@ -12,19 +19,14 @@ describe('verifying the registration', function () {
 
     beforeEach(function () {
         registerPage.visitRegisterPage();
-    })
+    });
 
     it('Verify the user registration', function () {
-        let password = Helpers.makeLorem();
-        let resultMessage = 'Account was successfully created.'
-        registerPage.registerNewUser(password, password, resultMessage);
+        registerPage.registerNewUser(randomPassword, randomPassword, accountWasCreatedMsg);
     });
 
     it('Verify the user receive correct exception while entering wrong confirmation password on the register page', function () {
-        let password = "HuskTheBest75_";
-        let confirm_password = "HuskTheBest75";
-        let resultMessage = "Password doesn't match confirmation"
-        registerPage.registerNewUser(password, confirm_password, resultMessage);
+        registerPage.registerNewUser(password, confirmPassword, passwordDoesntMatchMsg);
         registerPage.passwordInput.should('be.visible');
         registerPage.confirmPasswordInput.should('be.visible');
         registerPage.passwordInput.should('have.value', '');
@@ -32,9 +34,7 @@ describe('verifying the registration', function () {
     });
 
     it('Verify the user receive correct exception while entering email that already been taken on the register page', function () {
-        let password = Helpers.makeLorem();
-        let email = '299c0a41-190e-4533-891b-b333b9f37e51';
-        registerPage.fillData(email, password, password);
+        registerPage.fillData(existedEmailId, randomPassword, randomPassword);
         registerPage.displayedElementById('errorExplanation');
         registerPage.passwordInput.should('be.visible');
         registerPage.confirmPasswordInput.should('be.visible');
